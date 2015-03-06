@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Reflectors\ReflectionSource | Reflectors</title>
+                    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../classes.html">Classes</a></li>
+                            <li><a href="../namespaces.html">Namespaces</a></li>
+                        <li><a href="../interfaces.html">Interfaces</a></li>
+            <li><a href="../traits.html">Traits</a></li>
+            <li><a href="../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Reflectors</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../Reflectors.html">Reflectors</a>\ReflectionSource</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>ReflectionSource</strong>        implements
+        <a href="http://php.net/Reflector"><abbr title="Reflector">Reflector</abbr></a></p>
+
+            <div class="description">
+            <p>Class ReflectionSource</p>
+            <p>
+</p>
+        </div>
+    
+    
+            <h2>Properties</h2>
+
+            <table>
+                    <tr>
+                <td class="type" id="property_default_context">
+                    static                                        
+                </td>
+                <td>$default_context</td>
+                <td class="last">
+</td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(string $value, null $lineno = null, array $context = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getPath">getPath</a>()
+                    <p>Returns the path of concerned file (alias of <code>self::getValue()</code>)</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getValue">getValue</a>()
+                    <p>Returns the path of concerned file</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int|null
+                </td>
+                <td class="last">
+                    <a href="#method_getLineNo">getLineNo</a>()
+                    <p>Returns the concerned line number (if defined)</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getContext">getContext</a>(null $item = null)
+                    <p>Returns the context or one of its items</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getSource">getSource</a>()
+                    <p>Get the source code of the file in a line-by-line array</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method___toString">__toString</a>()
+                    <p>Representation of the object</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 58</div>
+        <code>            public            
+    <strong>__construct</strong>(string $value, null $lineno = null, array $context = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$value</td>
+                <td>The file path, which MUST exist</td>
+            </tr>
+                    <tr>
+                <td>null</td>
+                <td>$lineno</td>
+                <td>An optional line of the file to work around</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$context</td>
+                <td>A table with optional context info: - 'unified' is the number of lines taken around concerned one (default is 3) - 'function' can be concerned function name, to increase unified if necessary</td>
+            </tr>
+            </table>
+
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
+                <td>if the <code>$value</code> parameter is not a string</td>
+            </tr>
+                    <tr>
+                <td><a href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
+                <td>if the file does not exist</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getPath">
+        <div class="location">at line 83</div>
+        <code>            public            string
+    <strong>getPath</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the path of concerned file (alias of <code>self::getValue()</code>)</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getValue">
+        <div class="location">at line 93</div>
+        <code>            public            string
+    <strong>getValue</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the path of concerned file</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getLineNo">
+        <div class="location">at line 103</div>
+        <code>            public            int|null
+    <strong>getLineNo</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the concerned line number (if defined)</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getContext">
+        <div class="location">at line 114</div>
+        <code>            public            array|mixed
+    <strong>getContext</strong>(null $item = null)</code>
+    </h3>
+    <div class="details">
+        <p>Returns the context or one of its items</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>null</td>
+                <td>$item</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSource">
+        <div class="location">at line 131</div>
+        <code>            public            mixed
+    <strong>getSource</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the source code of the file in a line-by-line array</p>
+        <p>The keys of the items are the line numbers, and a special <code>on</code> key
+is used if a <code>line</code> exists in the trace.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___toString">
+        <div class="location">at line 176</div>
+        <code>            public            string
+    <strong>__toString</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Representation of the object</p>
+        <p>If an exception is caught, its message is returned instead of the
+original result (but its not thrown ahead).</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
