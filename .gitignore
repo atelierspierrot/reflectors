@@ -1,0 +1,25 @@
+# the composer lock file
+composer.lock
+
+# user defined files
+user/*
+
+# any "tmp*" file or dir
+tmp*
+*/tmp*
+
+# the external packages installed by Composer, Template Engine or others
+vendor/*
+*/vendor/*
+
+# the documentation, that is NOT under version-control by default
+# this may be commented on the "dev" branch
+#phpdoc/*
+
+# for development ...
+# this may be commented on the "wip" branch
+#dev/*
+#build/*
+
+# Hack to allow keeping an empty directory
+!.gitkeep
