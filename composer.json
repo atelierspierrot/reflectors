@@ -1,0 +1,30 @@
+{
+    "name": "atelierspierrot/reflectors",
+    "type": "library",
+    "description": "Some PHP Reflection objects",
+    "keywords": [ "library", "reflector" ],
+    "homepage": "http://github.com/atelierspierrot/reflectors",
+    "license": "Apache-2.0",
+    "authors": [{
+        "name": "Les Ateliers Pierrot & contributors",
+        "email": "contact@ateliers-pierrot.fr",
+        "homepage": "http://www.ateliers-pierrot.fr/"
+    },{
+        "name": "Pierre Cassat",
+        "homepage": "http://e-piwi.fr/"
+    }],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "sami/sami": "2.*",
+        "phpunit/phpunit": "3.7.*",
+        "phpmd/phpmd" : "1.4.*"
+    },
+    "autoload": { "psr-0": {  "Reflectors": "src" } },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
