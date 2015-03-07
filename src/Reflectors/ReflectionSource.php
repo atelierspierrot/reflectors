@@ -23,8 +23,7 @@
 namespace Reflectors;
 
 /**
- * Class ReflectionSource
- * @link    http://php.net/manual/class.reflector.php
+ * The source reflector
  */
 class ReflectionSource
     implements \Reflector
@@ -32,42 +31,78 @@ class ReflectionSource
 
     /**
      * This class inherits from \Reflectors\ReflectorTrait
+     * This class inherits from \Reflectors\ReadOnlyPropertiesTrait
      */
-    use ReflectorTrait;
-
-    public static $default_context = array(
-        'unified' => 3
-    );
-
-    protected $value;
-    protected $lineno;
-    protected $context;
-    protected $source;
-    protected $file_source;
+    use ReflectorTrait, ReadOnlyPropertiesTrait;
 
     /**
-     * @param   string  $value      The file path, which MUST exist
+     * @var array   The default source context. It only defines the default number of lines to show around the highlighted one (if so).
+     */
+    public static $default_context = array(
+        'unified'       => 3,
+        'highlighting'  => array(
+            'highlight.string'  => '#DD0000',
+            'highlight.comment' => '#FF9900',
+            'highlight.keyword' => '#007700',
+            'highlight.default' => '#0000BB',
+            'highlight.html'    => '#000000'
+        )
+    );
+
+    /**
+     * @var string   The source file path. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+     */
+    protected $file_path;
+
+    /**
+     * @var int   The source line number. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+     */
+    protected $lineno;
+
+    /**
+     * @var array   The context. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+     */
+    protected $context;
+
+    /**
+     * @var array   The sources. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+     */
+    protected $source;
+
+    protected $file_source;
+    protected static $_read_only = array(
+        'file_path' => 'getFilePath',
+        'lineno'    => 'getLineNo',
+        'context'   => 'getContext',
+        'source'    => 'getSource',
+    );
+
+    /**
+     * @param   string  $file_path  The file path, which MUST exist
      * @param   null    $lineno     An optional line of the file to work around
      * @param   array   $context    A table with optional context info:
      *                                  - 'unified' is the number of lines taken around concerned one (default is 3)
+     *                                  - 'highlighting' is the table of highlight settings colors
+     *                                     (from php.ini: <http://php.net/manual/misc.configuration.php#ini.syntax-highlighting>)
      *                                  - 'function' can be concerned function name, to increase unified if necessary
      *
-     * @throws \ReflectionException if the `$value` parameter is not a string
+     * @throws \ReflectionException if the `$file_path` parameter is not a string
      * @throws \ReflectionException if the file does not exist
      */
-    public function __construct($value, $lineno = null, array $context = null)
+    public function __construct($file_path, $lineno = null, array $context = null)
     {
-        if (!is_string($value)) {
+        $this->setReadOnlyProperties($this::$_read_only);
+        if (!is_string($file_path)) {
             throw new \ReflectionException(
-                sprintf(__METHOD__.' expects parameter one to be string, %s given', gettype($value))
+                sprintf(__METHOD__.' expects parameter one to be string, %s given', gettype($file_path))
             );
         }
-        if (!file_exists($value)) {
+        if (!file_exists($file_path)) {
             throw new \ReflectionException(
-                sprintf(__METHOD__.' expects parameter one to be a valid file path, %s given: No such file or directory', $value)
+                sprintf(__METHOD__.' expects parameter one to be a valid file path, %s given: No such file or directory', $file_path)
             );
         }
-        $this->value        = $value;
+        $this->file_path    = $file_path;
         $this->lineno       = $lineno;
         $this->context      = self::$default_context;
         if (!empty($context)) {
@@ -76,23 +111,13 @@ class ReflectionSource
     }
 
     /**
-     * Returns the path of concerned file (alias of `self::getValue()`)
-     *
-     * @return string
-     */
-    public function getPath()
-    {
-        return $this->getValue();
-    }
-
-    /**
      * Returns the path of concerned file
      *
      * @return string
      */
-    public function getValue()
+    public function getFilePath()
     {
-        return $this->value;
+        return $this->file_path;
     }
 
     /**
@@ -124,7 +149,7 @@ class ReflectionSource
      * Get the source code of the file in a line-by-line array
      *
      * The keys of the items are the line numbers, and a special `on` key
-     * is used if a `line` exists in the trace.
+     * is used if a `line` exists in the trace: `on => line number`.
      *
      * @return mixed
      */
@@ -158,7 +183,7 @@ class ReflectionSource
                 $this->source[$i] = $lines[$i - 1];
             }
             if (!empty($lineno) && isset($this->source[$lineno])) {
-                $this->source['on'] = $this->source[$lineno];
+                $this->source['on'] = $lineno;
             }
 
         }
@@ -166,50 +191,138 @@ class ReflectionSource
     }
 
     /**
+     * Renders the source as plain text
+     *
+     * @param   bool    $return Return the result or not
+     * @param   bool    $info   Add the introduction information or not
+     * @return  string
+     */
+    public function render($return = false, $info = false)
+    {
+        if ($info) {
+            $output = $this->_renderInfo().PHP_EOL.$this->_renderSource();
+        } else {
+            $output = $this->_renderSource();
+        }
+        if ($return) {
+            return $output;
+        } else {
+            echo $output;
+        }
+    }
+
+    /**
+     * Renders the source highlighted in HTML
+     *
+     * @param   bool    $return Return the result or not
+     * @param   bool    $info   Add the introduction information or not
+     * @return  string
+     */
+    public function renderHighlight($return = false, $info = false)
+    {
+        $directives = $this->getContext('highlighting');
+        $old_values = array();
+        foreach ($directives as $name=>$default) {
+            $user = ini_get($name);
+            if (empty($user)) {
+                ini_set($name, $default);
+                $old_values[] = $name;
+            }
+        }
+
+        $raw_source     = $this->_renderSource();
+        if (!strpos('<?php', $raw_source)) {
+            $raw_source = '<?php'.PHP_EOL.$raw_source;
+        }
+        $source         = preg_replace('/&lt;\?php\<br \/\>/', '', highlight_string($raw_source, true), 1);
+        if ($info) {
+            $intro      = nl2br($this->_renderInfo());
+            $output     = <<<MESSAGE
+<figure>
+    <figcaption>{$intro}</figcaption>
+    <pre>{$source}</pre>
+</figure>
+MESSAGE;
+        } else {
+            $output     = "<pre>{$source}</pre>";
+        }
+
+        foreach ($old_values as $name) {
+            ini_restore($name);
+        }
+
+        if ($return) {
+            return $output;
+        } else {
+            echo $output;
+        }
+    }
+
+    /**
      * Representation of the object
      *
      * If an exception is caught, its message is returned instead of the
-     * original result (but its not thrown ahead).
+     * original result (but it is not thrown ahead).
      *
      * @return string
      */
     public function __toString()
     {
         try {
-            $str    = '';
-            $lines  = $this->getSource();
-            foreach ($lines as $i=>$line) {
-                if (!is_string($i)) {
-                    if (array_key_exists('on', $lines) && $lines['on']==$line) {
-                        $str .= '* '.$line.PHP_EOL;
-                    } else {
-                        $str .= '  '.$line.PHP_EOL;
-                    }
-                }
-            }
-            if (array_key_exists('on', $lines)) {
-                unset($lines['on']);
-            }
-
-            $intro = 'Source from file [ '.$this->getPath().' ] ';
-            $line = $this->getLineNo();
-            if (!empty($line)) {
-                $intro .= 'at line [ '.$line.' ] ';
-            }
-
-            $lines_info = '@@ '.$this->getPath().' '.min(array_keys($lines)).' - '.max(array_keys($lines));
-            return $intro.PHP_EOL.$lines_info.PHP_EOL.$str;
+            return $this->render(true, true);
         } catch (\Exception $e) {
             return $e->__toString();
         }
     }
 
+    /*
+     * Gets the file content line by line
+     */
     protected function _getFileSource()
     {
         if (empty($this->file_source)) {
-            $this->file_source = file($this->getPath(), FILE_USE_INCLUDE_PATH | FILE_IGNORE_NEW_LINES);
+            $this->file_source = file($this->getFilePath(), FILE_USE_INCLUDE_PATH | FILE_IGNORE_NEW_LINES);
         }
         return $this->file_source;
+    }
+
+    /*
+     * Renders the information string about the source (file name and concerned lines)
+     */
+    protected function _renderInfo()
+    {
+        $lines  = $this->getSource();
+        if (array_key_exists('on', $lines)) {
+            unset($lines['on']);
+        }
+
+        $info = 'Source from file [ '.$this->getFilePath().' ] ';
+        $line = $this->getLineNo();
+        if (!empty($line)) {
+            $info .= 'at line [ '.$line.' ] ';
+        }
+
+        $info .= PHP_EOL.'@@ '.$this->getFilePath().' '.min(array_keys($lines)).' - '.max(array_keys($lines));
+        return $info;
+    }
+
+    /*
+     * Renders the source line by line by an asterisk on the highlighted one (if so)
+     */
+    protected function _renderSource()
+    {
+        $str    = '';
+        $lines  = $this->getSource();
+        foreach ($lines as $i=>$line) {
+            if (!is_string($i)) {
+                if (array_key_exists('on', $lines) && $lines['on']==$i) {
+                    $str .= '* '.$line.PHP_EOL;
+                } else {
+                    $str .= '  '.$line.PHP_EOL;
+                }
+            }
+        }
+        return $str;
     }
 
 }

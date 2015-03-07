@@ -20,56 +20,41 @@
  * <http://github.com/atelierspierrot/reflectors>.
  */
 
-namespace Reflectors;
+namespace Reflectors\Value;
+
+use \Reflectors\ValueType;
+use \Reflectors\AbstractReflectionValue;
 
 /**
- * Class ReflectionResource
+ * The "unknown" typed value reflector
  */
-class ReflectionResource
+class ReflectionUnknown
     extends AbstractReflectionValue
 {
 
-    protected $resource_type;
-
     /**
-     * @param   resource $value
-     * @throws  \ReflectionException if the parameter is not a resource
+     * @param   ?       $value
+     * @param   int     $flag   A flag used by the `ValueType::getType()` method (not used here)
      */
-    public function __construct($value)
+    public function __construct($value, $flag = ValueType::MODE_STRICT)
     {
-        if (!is_resource($value)) {
-            throw new \ReflectionException(
-                sprintf(__METHOD__.' expects parameter one to be resource, %s given', gettype($value))
-            );
-        }
-        $this->type             = 'resource';
-        $this->value            = $value;
-        $this->resource_type    = get_resource_type($value);
-    }
-
-    /**
-     * Returns the type of the resource
-     *
-     * @return  string
-     * @link    http://php.net/manual/function.get-resource-type.php
-     */
-    public function getResourceType()
-    {
-        return $this->resource_type;
+        $this->setReadOnlyProperties($this::$_read_only);
+        $this->type     = ValueType::TYPE_UNKNOWN;
+        $this->value    = $value;
     }
 
     /**
      * Representation of the object
      *
      * If an exception is caught, its message is returned instead of the
-     * original result (but its not thrown ahead).
+     * original result (but it is not thrown ahead).
      *
      * @return string
      */
     public function __toString()
     {
         try {
-            return 'Resource of type <'.$this->getResourceType().'> [ '.@var_export($this->getValue(),1).' ]';
+            return 'Unknown type variable [ ' . @var_export($this->value, 1) . ' ]';
         } catch (\Exception $e) {
             return $e->__toString();
         }

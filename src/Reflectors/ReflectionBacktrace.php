@@ -23,8 +23,7 @@
 namespace Reflectors;
 
 /**
- * Class ReflectionBacktrace
- * @link    http://php.net/manual/class.reflector.php
+ * The backtrace reflector
  */
 class ReflectionBacktrace
     implements \Reflector
@@ -32,29 +31,52 @@ class ReflectionBacktrace
 
     /**
      * This class inherits from \Reflectors\ReflectorTrait
+     * This class inherits from \Reflectors\ReadOnlyPropertiesTrait
      */
-    use ReflectorTrait;
+    use ReflectorTrait, ReadOnlyPropertiesTrait;
 
+    protected static $_read_only = array(
+        'traces'     => 'getTraces',
+        'length'     => 'getLength',
+        'raw_traces' => 'getRawTraces',
+    );
+
+    /**
+     * @var array   The original raw backtrace array. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+     */
     protected $raw_traces;
+
+    /**
+     * @var array   The backtrace array with each item defined as a `\Reflectors\ReflectionTrace` object. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+     */
     protected $traces;
-    protected $traces_length;
+
+    /**
+     * @var int   The backtrace length. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+     */
+    protected $length;
+
     protected $limit;
 
     /**
+     * Construct a backtrace reflection
+     *
+     * If the first parameter is not set, this will use the result of the [`debug_backtrace()`](http://php.net/debug_backtrace)
+     * function to get current backtrace.
+     *
      * @param   array   $traces
      * @param   int     $options    the first argument of the internal `debug_backtrace()` function
      * @param   int     $limit      the second argument of the internal `debug_backtrace()` function
-     *
-     * @link    http://php.net/manual/function.debug-backtrace.php
      */
     public function __construct(array $traces = null, $options = DEBUG_BACKTRACE_PROVIDE_OBJECT, $limit = 0)
     {
+        $this->setReadOnlyProperties($this::$_read_only);
         if (is_null($traces)) {
             $traces = debug_backtrace($options, $limit);
         }
-        $this->limit         = $limit;
-        $this->raw_traces    = $traces;
-        $this->traces_length = count($this->traces);
+        $this->limit        = $limit;
+        $this->raw_traces   = $traces;
+        $this->length       = count($this->traces);
     }
 
     /**
@@ -75,6 +97,7 @@ class ReflectionBacktrace
     public function getTraces()
     {
         if (empty($this->traces)) {
+            $this->traces = array();
             $counter = 1;
             foreach ($this->getRawTraces() as $i=>$trace) {
                 if ($this->limit>0 && $counter>$this->limit) {
@@ -94,7 +117,7 @@ class ReflectionBacktrace
      */
     public function getLength()
     {
-        return $this->traces_length;
+        return $this->length;
     }
 
     /**
@@ -116,7 +139,7 @@ class ReflectionBacktrace
      * Representation of the object
      *
      * If an exception is caught, its message is returned instead of the
-     * original result (but its not thrown ahead).
+     * original result (but it is not thrown ahead).
      *
      * @return string
      */

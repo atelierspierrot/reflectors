@@ -23,15 +23,12 @@
 namespace Reflectors;
 
 /**
- * Class ReflectorTrait
+ * Basic implementation of the `\Reflector::export()` method
  *
  * This trait defines a global `export()` method for objects
- * that implements the `\Reflector` interface. The method will
- * basically try to call current class constructor passing it
- * the arguments and then return or echo its `__toString()`
- * representation.
- *
- * @link    http://php.net/manual/class.reflector.php
+ * that implement the [`\Reflector` interface](http://php.net/Reflector).
+ * The method will basically try to call current class constructor passing it
+ * the first argument received and then returns or echoes its representation.
  */
 trait ReflectorTrait
 {
@@ -44,7 +41,7 @@ trait ReflectorTrait
      * one argument, you will have to over-write this method (or to not use the
      * trait).
      *
-     * @param   mixed   $arg
+     * @param   mixed   $argument
      * @param   bool    $return
      *
      * @return  string|null
@@ -52,7 +49,7 @@ trait ReflectorTrait
      * @throws  \ErrorException if the mother class does not implement the `\Reflector` interface
      * @throws  \ErrorException if the mother class constructor is not callable
      */
-    public static function export($arg, $return = false)
+    public static function export($argument, $return = false)
     {
         $_class     = get_called_class();
         $reflection = new \ReflectionClass($_class);
@@ -66,7 +63,7 @@ trait ReflectorTrait
                 sprintf(__METHOD__.' must be used by class with a callable constructor, "%s" given', $_class)
             );
         } else {
-            $obj = $reflection->newInstance($arg);
+            $obj = $reflection->newInstance($argument);
         }
         if ($return) {
             return $obj->__toString();

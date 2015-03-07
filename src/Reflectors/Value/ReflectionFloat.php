@@ -20,28 +20,33 @@
  * <http://github.com/atelierspierrot/reflectors>.
  */
 
-namespace Reflectors;
+namespace Reflectors\Value;
+
+use \Reflectors\ValueType;
+use \Reflectors\AbstractReflectionValue;
 
 /**
- * Class ReflectionBoolean
+ * The [float](http://php.net/float) value reflector
  */
-class ReflectionBoolean
+class ReflectionFloat
     extends AbstractReflectionValue
 {
 
     /**
-     * @param   bool $value
-     * @throws  \ReflectionException if the parameter is not a boolean
+     * @param   float   $value
+     * @param   int     $flag   A flag used by the `ValueType::getType()` method (not used here)
+     * @throws  \ReflectionException if the parameter is not a float
      */
-    public function __construct($value)
+    public function __construct($value, $flag = ValueType::MODE_STRICT)
     {
-        if (!is_bool($value) && !is_numeric($value) && ($value!==1 && $value!==0)) {
+        if (!ValueType::isFloat($value)) {
             throw new \ReflectionException(
-                sprintf(__METHOD__.' expects parameter one to be boolean, %s given', gettype($value))
+                sprintf(__METHOD__.' expects parameter one to be float, %s given', gettype($value))
             );
         }
-        $this->type     = 'boolean';
-        $this->value    = (bool) $value;
+        $this->setReadOnlyProperties($this::$_read_only);
+        $this->type     = ValueType::TYPE_FLOAT;
+        $this->value    = (float) $value;
     }
 
     /**
@@ -51,7 +56,7 @@ class ReflectionBoolean
      */
     public function __toString()
     {
-        return 'Boolean [ '.($this->getValue()===true ? 'true' : 'false').' ]';
+        return 'Float [ '.$this->getValue().' ]';
     }
 
 }

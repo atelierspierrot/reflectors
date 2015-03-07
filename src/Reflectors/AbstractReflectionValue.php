@@ -23,30 +23,50 @@
 namespace Reflectors;
 
 /**
- * Class AbstractReflectionValue
+ * Basic implementation of the `\Reflectors\ReflectionValueInterface` with read-only properties.
  *
  * This defines a global value reflection base class
  * with implementation of the `getValue()` and `getValueType()`
  * methods of the `\Reflectors\ReflectionVariableInterface`.
+ * The `$value` and `$type` properties are read-only.
  */
 abstract class AbstractReflectionValue
-    implements ReflectionVariableInterface
+    implements ReflectionValueInterface
 {
 
     /**
      * This class inherits from \Reflectors\ReflectorTrait
+     * This class inherits from \Reflectors\ReadOnlyPropertiesTrait
      */
-    use ReflectorTrait;
+    use ReflectorTrait, ReadOnlyPropertiesTrait;
 
+    protected static $_read_only = array(
+        'value' => 'getValue',
+        'type'  => 'getValueType'
+    );
+
+    /**
+     * @var mixed   The reflected value. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+     */
     protected $value;
+
+    /**
+     * @var string  The type of reflected value. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+     */
     protected $type;
 
     /**
-     * Extending classes must define their own constructor
+     * Extending classes may define their own constructor and call this one first
      *
-     * @param $value
+     * @param   mixed   $value
+     * @param   int     $flag   A flag used by the `ValueType::getType()` method
      */
-    abstract public function __construct($value);
+    public function __construct($value, $flag = ValueType::MODE_STRICT)
+    {
+        $this->setReadOnlyProperties($this::$_read_only);
+        $this->value    = $value;
+        $this->type     = ValueType::getType($value);
+    }
 
     /**
      * Extending classes must define their own representation
