@@ -47,19 +47,17 @@ a.handler.strong {font-weight: bold;}
 a.footnote_link {color: #2380A0; font-weight: bold;}
 .footnotes li {margin-left: 1em;}
 
-.jsconsole  {margin-top: 0; margin-bottom: 22px; height: auto; min-height: 40px;}
-.jsconsole h3 { margin-top: 1em; }
-
+div.highlight {margin-bottom: 1em;}
 /* highlight */
 div.highlight {background:#FFFFFF; border:1px solid #D0D0D0; font-family:"Courier New","Andale Mono", Courrier, monospace; overflow: hidden;}
-div.highlight pre{width: 100%; overflow: auto; padding:0; margin:0; font-size:1em; clear: both;}
+div.highlight pre{width: 100%; overflow: auto; padding:0; margin:0; font-size:13px; clear: both; }
 /* tabs */
 div.highlight ul.tabs {overflow: hidden; padding: 5px 0 5px 0; margin: 0; list-style: none; border-bottom: 1px solid #E0E0E0; width: 100%;}
 div.highlight ul.tabs li {padding: 0; margin: 0 5px; float: left; background: none; border-bottom: 1px dashed #CCC; line-height:1.0em; color: #CCC; cursor: pointer;}
 div.highlight ul.tabs li.active {border-bottom: none; cursor: default;}
 /* pre */
 div.highlight pre.code ol {margin: 0; padding:0 0 0 45px; background:#e7e5dc;  }
-div.highlight pre.code ul {margin: 0; padding:0;    }
+div.highlight pre.code ul {margin: 0; padding:0;}
 div.highlight pre.code ol li, div.highlight pre.code ul li {padding:0 0 0 5px; border-left:3px solid #CCC; background:#F9F9F9;}
 div.highlight pre.code ul li {border-left:none;}
 div.highlight pre.code ol li.even, div.highlight pre.code ul li.even {background-color:#F4F4F4;}
