@@ -23,14 +23,11 @@
 namespace Reflectors;
 
 /**
- * Class ReflectionParameterValue
- *
- * @link    http://php.net/manual/class.reflector.php
- * @link    http://php.net/manual/class.reflectionparameter.php
+ * An extension of the internal `\ReflectionParameter` with a value
  */
 class ReflectionParameterValue
     extends \ReflectionParameter
-    implements \Reflector, ReflectionVariableInterface
+    implements \Reflector, ReflectionValueInterface
 {
 
     protected $value;
@@ -40,12 +37,15 @@ class ReflectionParameterValue
      * @param   string  $function   this is the first argument of the original `\ReflectionParameter::__construct()`
      * @param   string  $parameter  this is the second argument of the original `\ReflectionParameter::__construct()`
      * @param   mixed   $value      the user value of the parameter
-     *
-     * @link    http://php.net/manual/class.reflectionparameter.php
+     * @throws  \Exception caught from parent constructor
      */
     public function __construct($function, $parameter, $value)
     {
-        parent::__construct($function, $parameter);
+        try {
+            parent::__construct($function, $parameter);
+        } catch (\Exception $e) {
+            throw $e;
+        }
         $this->value        = $value;
         $this->type         = gettype($value);
     }
@@ -74,14 +74,14 @@ class ReflectionParameterValue
      * Representation of the object
      *
      * If an exception is caught, its message is returned instead of the
-     * original result (but its not thrown ahead).
+     * original result (but it is not thrown ahead).
      *
      * @return string
      */
     public function __toString()
     {
         try {
-            return parent::__toString().' with user value { '.ReflectionVariable::export($this->value, true).' }';
+            return parent::__toString().' with user value { '.ReflectionValue::export($this->value, true).' }';
         } catch (\Exception $e) {
             return $e->__toString();
         }

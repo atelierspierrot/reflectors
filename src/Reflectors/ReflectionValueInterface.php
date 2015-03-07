@@ -23,36 +23,29 @@
 namespace Reflectors;
 
 /**
- * Class ReflectionFloat
+ * This interface is designed to build generic objects reflecting a variable with its value and type.
+ *
+ * It forces to construct
  */
-class ReflectionFloat
-    extends AbstractReflectionValue
+interface ReflectionValueInterface
+    extends \Reflector
 {
 
     /**
-     * @param   float $value
-     * @throws  \ReflectionException if the parameter is not a float
+     * Returns the current value of concerned variable
+     *
+     * @return mixed
      */
-    public function __construct($value)
-    {
-        if (!is_float($value)) {
-            throw new \ReflectionException(
-                sprintf(__METHOD__.' expects parameter one to be float, %s given', gettype($value))
-            );
-        }
-        $this->type     = 'float';
-        $this->value    = (float) $value;
-    }
+    public function getValue();
 
     /**
-     * Representation of the object
+     * Returns the type of the value of concerned variable
      *
-     * @return string
+     * The returned type MUST be one of the `\Reflectors\ValueType` constants `TYPE_...`.
+     *
+     * @return  string
      */
-    public function __toString()
-    {
-        return 'Float [ '.$this->getValue().' ]';
-    }
+    public function getValueType();
 
 }
 

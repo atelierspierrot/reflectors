@@ -20,28 +20,35 @@
  * <http://github.com/atelierspierrot/reflectors>.
  */
 
-namespace Reflectors;
+namespace Reflectors\Value;
+
+use \Reflectors\ValueType;
+use \Reflectors\AbstractReflectionValue;
 
 /**
- * Class ReflectionValueNull
+ * The [integer](http://php.net/integer) value reflector
  */
-class ReflectionValueNull
+class ReflectionInteger
     extends AbstractReflectionValue
 {
 
     /**
-     * @param   null $value
-     * @throws  \ReflectionException if the parameter is not null
+     * Use the `ValueType::NUMERIC_AS_INTEGER` flag to allow any numeric value
+     *
+     * @param   int     $value
+     * @param   int     $flag   A flag used by the `ValueType::getType()` method
+     * @throws  \ReflectionException if the parameter is not an integer
      */
-    public function __construct($value)
+    public function __construct($value, $flag = ValueType::MODE_STRICT)
     {
-        if (!is_null($value)) {
+        if (!ValueType::isInteger($value, $flag)) {
             throw new \ReflectionException(
-                sprintf(__METHOD__.' expects parameter one to be NULL, %s given', gettype($value))
+                sprintf(__METHOD__.' expects parameter one to be integer, %s given', gettype($value))
             );
         }
-        $this->type     = 'NULL';
-        $this->value    = $value;
+        $this->setReadOnlyProperties($this::$_read_only);
+        $this->type     = ValueType::TYPE_INTEGER;
+        $this->value    = (int) $value;
     }
 
     /**
@@ -51,7 +58,7 @@ class ReflectionValueNull
      */
     public function __toString()
     {
-        return 'Null value';
+        return 'Integer [ '.$this->getValue().' ]';
     }
 
 }

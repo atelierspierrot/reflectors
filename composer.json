@@ -17,7 +17,7 @@
         "php": ">=5.4.0"
     },
     "require-dev": {
-        "sami/sami": "2.*",
+        "sami/sami": "3.*",
         "phpunit/phpunit": "3.7.*",
         "phpmd/phpmd" : "1.4.*"
     },

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Reflectors\ReadOnlyPropertiesTrait | Reflectors (atelierspierrot/reflectors)</title>
+
+            <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/sami.css">
+        <script src="../js/jquery-1.11.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/typeahead.min.js"></script>
+        <script src="../sami.js"></script>
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Reflectors_ReadOnlyPropertiesTrait" data-root-path="../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">Reflectors (atelierspierrot/reflectors)</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../classes.html">Classes</a></li>
+                                            <li><a href="../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../interfaces.html">Interfaces</a></li>
+                    <li><a href="../traits.html">Traits</a></li>
+                    <li><a href="../doc-index.html">Index</a></li>
+                    <li><a href="../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">trait</span></li>
+                                                            <li><a href="../Reflectors.html">Reflectors</a></li>
+    
+                <li>ReadOnlyPropertiesTrait</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>ReadOnlyPropertiesTrait</h1>
+    </div>
+
+    <p>    trait
+    <strong>ReadOnlyPropertiesTrait</strong></p>
+
+            <div class="description">
+            <p>This trait defines magic getters and setters for read-only object's properties</p>            <p>The read-only properties list MUST be defined in the <code>$_read_only</code> static array
+of the child class (see the documentation of the static property for more information).
+Keep in mind that the magic methods defined here will ONLY consider read-only
+properties (other properties must be handled by the child class).</p>        </div>
+    
+    
+    
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setReadOnlyProperties">setReadOnlyProperties</a>(array $data)
+                                            <p>Defines the read-only properties names and accessors.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___get">__get</a>(string $name)
+                                            <p>Magic getter for read-only properties.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___set">__set</a>(string $name, mixed $value)
+                                            <p>Magic setter to avoid setting read-only properties.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___unset">__unset</a>(string $name)
+                                            <p>Magic un-setter to avoid un-setting read-only properties.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_setReadOnlyProperties">
+        <div class="location">at line 52</div>
+        <code>                    void
+    <strong>setReadOnlyProperties</strong>(array $data)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Defines the read-only properties names and accessors.</p>                    <p>Each <code>key =&gt; value</code> pair of the <code>$data</code> array must be constructed like:</p>
+
+<ul>
+<li><code>key</code> is the name of the property (MUST be defined with <em>protected</em>
+ access in the child class)</li>
+<li><code>value</code> is an accessor for that property: the name of the access method
+ if it exists or <code>true</code> for the default <code>$obj-&gt;$key</code> accessor.</li>
+</ul>
+</p>            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td>This is the table of read-only properties</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="http://php.net/InvalidArgumentException"><abbr title="InvalidArgumentException">InvalidArgumentException</abbr></a></td>
+                <td>if the <code>$data</code> array is malformed</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___get">
+        <div class="location">at line 84</div>
+        <code>                    mixed
+    <strong>__get</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Magic getter for read-only properties.</p>                    <p>This will trigger a notice if the property can not be accessed
+(i.e. is not defined in the <code>$_read_only</code> table).</p>            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___set">
+        <div class="location">at line 108</div>
+        <code>                    void
+    <strong>__set</strong>(string $name, mixed $value)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Magic setter to avoid setting read-only properties.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
+                <td>if trying to set a read-only property</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___unset">
+        <div class="location">at line 124</div>
+        <code>                    void
+    <strong>__unset</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Magic un-setter to avoid un-setting read-only properties.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
+                <td>if trying to unset a read-only property</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>

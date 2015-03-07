@@ -20,28 +20,35 @@
  * <http://github.com/atelierspierrot/reflectors>.
  */
 
-namespace Reflectors;
+namespace Reflectors\Value;
+
+use \Reflectors\ValueType;
+use \Reflectors\AbstractReflectionValue;
 
 /**
- * Class ReflectionInteger
+ * The [boolean](http://php.net/boolean) value reflector
  */
-class ReflectionInteger
+class ReflectionBoolean
     extends AbstractReflectionValue
 {
 
     /**
-     * @param   int $value
-     * @throws  \ReflectionException if the parameter is not an integer
+     * Use the `ValueType::BINARY_AS_BOOLEAN` flag to allow binaries `0` and `1` as boolean values
+     *
+     * @param   bool $value
+     * @param   int         $flag   A flag used by the `ValueType::getType()` method
+     * @throws  \ReflectionException if the parameter is not a boolean
      */
-    public function __construct($value)
+    public function __construct($value, $flag = ValueType::MODE_STRICT)
     {
-        if (!is_numeric($value)) {
+        if (!ValueType::isBoolean($value, $flag)) {
             throw new \ReflectionException(
-                sprintf(__METHOD__.' expects parameter one to be integer, %s given', gettype($value))
+                sprintf(__METHOD__.' expects parameter one to be boolean, %s given', gettype($value))
             );
         }
-        $this->type     = 'integer';
-        $this->value    = (int) $value;
+        $this->setReadOnlyProperties($this::$_read_only);
+        $this->type     = ValueType::TYPE_BOOLEAN;
+        $this->value    = (bool) $value;
     }
 
     /**
@@ -51,7 +58,7 @@ class ReflectionInteger
      */
     public function __toString()
     {
-        return 'Integer [ '.$this->getValue().' ]';
+        return 'Boolean [ '.($this->getValue()===true ? 'true' : 'false').' ]';
     }
 
 }

@@ -20,29 +20,44 @@
  * <http://github.com/atelierspierrot/reflectors>.
  */
 
-namespace Reflectors;
+namespace Reflectors\Value;
+
+use \Reflectors\ValueType;
+use \Reflectors\ReflectionValue;
+use \Reflectors\AbstractReflectionValue;
 
 /**
- * Class ReflectionArray
+ * The [array](http://php.net/array) value reflector
  */
 class ReflectionArray
     extends AbstractReflectionValue
 {
 
+    protected static $_read_only = array(
+        'value'     => 'getValue',
+        'type'      => 'getValueType',
+        'length'    => 'getLength',
+    );
+
+    /**
+     * @var int   The length of the array. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+     */
     protected $length;
 
     /**
      * @param   array   $value
+     * @param   int         $flag   A flag used by the `ValueType::getType()` method (not used here)
      * @throws  \ReflectionException if the parameter is not an array
      */
-    public function __construct($value)
+    public function __construct($value, $flag = ValueType::MODE_STRICT)
     {
-        if (!is_array($value)) {
+        if (!ValueType::isArray($value)) {
             throw new \ReflectionException(
                 sprintf(__METHOD__.' expects parameter one to be array, %s given', gettype($value))
             );
         }
-        $this->type     = 'array';
+        $this->setReadOnlyProperties($this::$_read_only);
+        $this->type     = ValueType::TYPE_ARRAY;
         $this->value    = $value;
         $this->length   = count($value);
     }
@@ -114,7 +129,7 @@ class ReflectionArray
      * Representation of the object
      *
      * If an exception is caught, its message is returned instead of the
-     * original result (but its not thrown ahead).
+     * original result (but it is not thrown ahead).
      *
      * @return string
      */
@@ -128,7 +143,7 @@ class ReflectionArray
                 if (in_array(gettype($item), array('object', 'array', 'resource', 'unknown type'))) {
                     $table .= PHP_EOL;
                 }
-                $table .= ReflectionVariable::export($item, true);
+                $table .= ReflectionValue::export($item, true);
                 $counter++;
             }
             $table .= PHP_EOL;

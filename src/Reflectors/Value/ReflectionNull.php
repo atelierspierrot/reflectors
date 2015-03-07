@@ -20,39 +20,43 @@
  * <http://github.com/atelierspierrot/reflectors>.
  */
 
-namespace Reflectors;
+namespace Reflectors\Value;
+
+use \Reflectors\ValueType;
+use \Reflectors\AbstractReflectionValue;
 
 /**
- * Class ReflectionValueUnknown
+ * The [NULL](http://php.net/null) value reflector
  */
-class ReflectionValueUnknown
+class ReflectionNull
     extends AbstractReflectionValue
 {
 
     /**
-     * @param ? $value
+     * @param   null    $value
+     * @param   int     $flag   A flag used by the `ValueType::getType()` method (not used here)
+     * @throws  \ReflectionException if the parameter is not null
      */
-    public function __construct($value)
+    public function __construct($value, $flag = ValueType::MODE_STRICT)
     {
-        $this->type     = 'unknown';
+        if (!ValueType::isNull($value)) {
+            throw new \ReflectionException(
+                sprintf(__METHOD__.' expects parameter one to be NULL, %s given', gettype($value))
+            );
+        }
+        $this->setReadOnlyProperties($this::$_read_only);
+        $this->type     = ValueType::TYPE_NULL;
         $this->value    = $value;
     }
 
     /**
      * Representation of the object
      *
-     * If an exception is caught, its message is returned instead of the
-     * original result (but its not thrown ahead).
-     *
      * @return string
      */
     public function __toString()
     {
-        try {
-            return 'Unknown type variable [ ' . @var_export($this->value, 1) . ' ]';
-        } catch (\Exception $e) {
-            return $e->__toString();
-        }
+        return 'Null value';
     }
 
 }

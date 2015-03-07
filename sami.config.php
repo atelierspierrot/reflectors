@@ -23,10 +23,10 @@ $iterator = Finder::create()
 ;
 
 $options = array(
-    'title'                => 'Reflectors',
+    'title'                => 'Reflectors (atelierspierrot/reflectors)',
     'build_dir'            => __DIR__.'/phpdoc',
     'cache_dir'            => __DIR__.'/../tmp/cache/reflectors',
-    'default_opened_level' => 1,
+    'default_opened_level' => 2,
 );
 
 return new Sami($iterator, $options);

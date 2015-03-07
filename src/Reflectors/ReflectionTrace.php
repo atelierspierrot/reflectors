@@ -20,275 +20,334 @@
  * <http://github.com/atelierspierrot/reflectors>.
  */
 
-namespace Reflectors;
+namespace
+{
+    /*
+     * Special function to create a not existing parameter
+     */
+    function _empty_parameter_ghost($param = null) {}
+}
 
-/**
- * Class ReflectionTrace
- * @link    http://php.net/manual/class.reflector.php
- */
-class ReflectionTrace
-    implements \Reflector
+namespace Reflectors
 {
 
     /**
-     * This class inherits from \Reflectors\ReflectorTrait
+     * This is the backtrace item reflector
      */
-    use ReflectorTrait;
-
-    /**
-     * @var array An array of internal PHP functions not considered as real traces
-     */
-    public static $not_real_fcts = array('require', 'require_once', 'include', 'include_once');
-
-    protected $object;
-    protected $class_name;
-    protected $class;
-    protected $function_name;
-    protected $function;
-    protected $line;
-    protected $file;
-    protected $type;
-    protected $called;
-    protected $args;
-    protected $arguments;
-
-    /**
-     * @param array $trace
-     */
-    public function __construct(array $trace)
+    class ReflectionTrace
+        implements \Reflector
     {
-        $entries = array(
-            'object', 'line', 'file', 'type', 'args',
-            'class'     => 'class_name',
-            'function'  => 'function_name'
+
+        /**
+         * This class inherits from \Reflectors\ReflectorTrait
+         * This class inherits from \Reflectors\ReadOnlyPropertiesTrait
+         */
+        use ReflectorTrait, ReadOnlyPropertiesTrait;
+
+        /**
+         * @var array An array of internal PHP functions not considered as real traces
+         */
+        public static $not_real_fcts = array('require', 'require_once', 'include', 'include_once');
+
+        /**
+         * @var null|object   The current object. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+         */
+        protected $object;
+
+        /**
+         * @var null|object   The current object. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+         */
+        protected $class;
+
+        /**
+         * @var null|object   The current object. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+         */
+        protected $function;
+
+        /**
+         * @var null|object   The current object. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+         */
+        protected $line;
+
+        /**
+         * @var null|object   The current object. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+         */
+        protected $file;
+
+        /**
+         * @var null|object   The current object. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+         */
+        protected $type;
+
+        /**
+         * @var null|object   The current object. Read-only, throws [ReflectionException](http://php.net/ReflectionException) in attempt to write.
+         */
+        protected $args;
+
+        protected $function_reflection;
+        protected $class_reflection;
+        protected $called;
+        protected $arguments;
+        protected static $_read_only = array(
+            'function'  => 'getFunctionName',
+            'line'      => 'getLine',
+            'file'      => 'getFile',
+            'class'     => 'getClassName',
+            'object'    => 'getObject',
+            'type'      => 'getType',
+            'args'      => 'getArgs',
         );
-        foreach ($entries as $k=>$entry) {
-            $index = is_string($k) ? $k : $entry;
-            if (array_key_exists($index, $trace) && !empty($trace[$index])) {
-                $this->{$entry} = $trace[$index];
+
+        /**
+         * @param array $trace
+         */
+        public function __construct(array $trace)
+        {
+            $this->setReadOnlyProperties($this::$_read_only);
+            $entries = array(
+                'function', 'line', 'file', 'class', 'object', 'type', 'args'
+            );
+            foreach ($entries as $entry) {
+                if (array_key_exists($entry, $trace)) {
+                    $this->{$entry} = $trace[$entry];
+                }
             }
         }
-    }
 
-    /**
-     * Returns a representation of called method or function
-     *
-     * Rendering:
-     *
-     *      ClassName::method
-     *      object->method
-     *      function
-     *      -
-     *
-     * @return string
-     */
-    public function getCalled()
-    {
-        if (empty($this->called)) {
-            if (!empty($this->class_name)) {
-                $this->called = $this->class_name.$this->type.$this->function_name;
-            } else {
-                $this->called = isset($this->function_name) ? $this->function_name : '-';
+        /**
+         * Returns a representation of called method or function
+         *
+         * Rendering:
+         *
+         *      ClassName::method
+         *      object->method
+         *      function
+         *      -
+         *
+         * @return string
+         */
+        public function getCalled()
+        {
+            if (empty($this->called)) {
+                $class_name = $this->getClassName();
+                $function_name = $this->getFunctionName();
+                $type = $this->getType();
+                if (!empty($class_name)) {
+                    $this->called = $class_name . $type . $function_name;
+                } else {
+                    $this->called = isset($function_name) ? $function_name : '-';
+                }
             }
+            return $this->called;
         }
-        return $this->called;
-    }
 
-    /**
-     * Returns the object if defined
-     *
-     * @return mixed
-     */
-    public function getObject()
-    {
-        return $this->object;
-    }
-
-    /**
-     * Returns the class name if defined
-     *
-     * @return string|null
-     */
-    public function getClassName()
-    {
-        return $this->class_name;
-    }
-
-    /**
-     * Returns the class as a `\ReflectionClass` object if defined
-     *
-     * @return \ReflectionClass|null
-     */
-    public function getClass()
-    {
-        if (empty($this->class) && !empty($this->class_name)) {
-            $this->class = new \ReflectionClass($this->class_name);
+        /**
+         * Tests if an object is defined
+         *
+         * @return bool
+         */
+        public function hasObject()
+        {
+            return (bool)!empty($this->object);
         }
-        return $this->class;
-    }
 
-    /**
-     * Returns the function name if defined
-     *
-     * @return string|null
-     */
-    public function getFunctionName()
-    {
-        return $this->function_name;
-    }
-
-    /**
-     * Returns the class as a `\ReflectionFunction` or `\ReflectionMethod` object if defined
-     *
-     * @return \ReflectionFunction|\ReflectionMethod|null
-     */
-    public function getFunction()
-    {
-        if (empty($this->function) && !empty($this->function_name)) {
-            if (
-                !empty($this->class_name) &&
-                method_exists($this->class_name, $this->function_name) &&
-                is_callable(array($this->class_name, $this->function_name))
-            ) {
-                $this->function = new \ReflectionMethod($this->class_name, $this->function_name);
-            } elseif (
-                function_exists($this->function_name)
-            ) {
-                $this->function = new \ReflectionFunction($this->function_name);
-            }
+        /**
+         * Returns the object if defined
+         *
+         * @return mixed
+         */
+        public function getObject()
+        {
+            return $this->object;
         }
-        return $this->function;
-    }
 
-    /**
-     * Returns concerned line if defined
-     *
-     * @return int|null
-     */
-    public function getLine()
-    {
-        return $this->line;
-    }
+        /**
+         * Returns the class name if defined
+         *
+         * @return string|null
+         */
+        public function getClassName()
+        {
+            return $this->class;
+        }
 
-    /**
-     * Returns concerned file if defined
-     *
-     * @return string
-     */
-    public function getFileName()
-    {
-        return $this->file;
-    }
-
-    /**
-     * Returns concerned type if defined
-     *
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Returns the trace arguments as the original array
-     *
-     * @return mixed
-     */
-    public function getArgs()
-    {
-        return $this->args;
-    }
-
-    /**
-     * Returns the trace arguments as an array of `\Reflectors\ReflectionParameterValue` or `\ReflectionParameter` items
-     *
-     * @return array
-     */
-    public function getArguments()
-    {
-        if (empty($this->arguments) && !empty($this->args) && count($this->args)>0) {
-            $this->arguments = array();
+        /**
+         * Returns the class as a `\ReflectionClass` object if defined
+         *
+         * @return \ReflectionClass|null
+         */
+        public function getClass()
+        {
             $cls_name = $this->getClassName();
-            $fct_name = $this->getFunctionName();
-
-            if (
-                empty($cls_name) &&
-                !empty($fct_name) &&
-                in_array($fct_name, self::$not_real_fcts)
-            ) {
-                return $this->arguments;
+            if (empty($this->class_reflection) && !empty($cls_name)) {
+                $this->class_reflection = new \ReflectionClass($cls_name);
             }
-
-            $methodReflect      = $this->getFunction();
-            $argumentsReflect   = $methodReflect->getParameters();
-
-            foreach($this->getArgs() as $index=>$value) {
-                if (isset($argumentsReflect[$index])) {
-                    $paramReflect = $argumentsReflect[$index];
-                } else {
-                    $paramReflect = new \ReflectionParameter('_empty_parameter_ghost', 'param');
-                }
-                if (!empty($cls_name)) {
-                    $this->arguments[$index] = new ReflectionParameterValue(
-                        array($fct_name, $cls_name), $paramReflect->getName(), $value
-                    );
-                } else {
-                    $this->arguments[$index] = new ReflectionParameterValue(
-                        $fct_name, $paramReflect->getName(), $value
-                    );
-                }
-            }
-        } else {
-            $this->arguments = array();
+            return $this->class_reflection;
         }
-        return $this->arguments;
-    }
 
-    /**
-     * Representation of the object
-     *
-     * If an exception is caught, its message is returned instead of the
-     * original result (but its not thrown ahead).
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        try {
-            $str = 'at '.$this->getCalled();
+        /**
+         * Returns the function name if defined
+         *
+         * @return string|null
+         */
+        public function getFunctionName()
+        {
+            return $this->function;
+        }
 
-            $args = $this->getArguments();
-            if (!empty($args)) {
-                $str .= ' (';
-                foreach ($args as $i=>$arg) {
-                    $str .= $arg->__toString();
-                    if ($i<count($args)) {
-                        $str .= ' , ';
+        /**
+         * Returns the class as a `\ReflectionFunction` or `\ReflectionMethod` object if defined
+         *
+         * @return \ReflectionFunction|\ReflectionMethod|null
+         */
+        public function getFunction()
+        {
+            $fct_name = $this->getFunctionName();
+            if (empty($this->function_reflection) && !empty($fct_name)) {
+                $cls_name = $this->getClassName();
+                if (
+                    !empty($cls_name) &&
+                    method_exists($cls_name, $fct_name)
+                ) {
+                    $this->function_reflection = new \ReflectionMethod($cls_name, $fct_name);
+                } elseif (
+                    function_exists($fct_name)
+                ) {
+                    $this->function_reflection = new \ReflectionFunction($fct_name);
+                }
+            }
+            return $this->function_reflection;
+        }
+
+        /**
+         * Returns concerned line if defined
+         *
+         * @return int|null
+         */
+        public function getLine()
+        {
+            return $this->line;
+        }
+
+        /**
+         * Returns concerned file if defined
+         *
+         * @return string
+         */
+        public function getFile()
+        {
+            return $this->file;
+        }
+
+        /**
+         * Returns concerned type if defined
+         *
+         * @return mixed
+         */
+        public function getType()
+        {
+            return $this->type;
+        }
+
+        /**
+         * Returns the trace arguments as the original array
+         *
+         * @return mixed
+         */
+        public function getArgs()
+        {
+            return $this->args;
+        }
+
+        /**
+         * Returns the trace arguments as an array of `\Reflectors\ReflectionParameterValue` or `\ReflectionParameter` items
+         *
+         * @return array
+         */
+        public function getArguments()
+        {
+            $args               = $this->getArgs();
+            $this->arguments    = array();
+            if (empty($this->arguments) && !empty($args) && count($args) > 0) {
+                $this->arguments    = array();
+                $cls_name           = $this->getClassName();
+                $fct_name           = $this->getFunctionName();
+
+                if (
+                    empty($cls_name) &&
+                    !empty($fct_name) &&
+                    in_array($fct_name, self::$not_real_fcts)
+                ) {
+                    return $this->arguments;
+                }
+
+                $methodReflect      = $this->getFunction();
+                if (!empty($methodReflect)) {
+                    $argumentsReflect       = $methodReflect->getParameters();
+                    foreach ($this->getArgs() as $index => $value) {
+                        if (isset($argumentsReflect[$index])) {
+                            $paramReflect   = $argumentsReflect[$index];
+                        } else {
+                            $paramReflect   = new \ReflectionParameter('_empty_parameter_ghost', 'param');
+                        }
+                        if (!empty($cls_name)) {
+                            $this->arguments[$index] = new ReflectionParameterValue(
+                                array($cls_name, $fct_name), $paramReflect->getName(), $value
+                            );
+                        } else {
+                            $this->arguments[$index] = new ReflectionParameterValue(
+                                $fct_name, $paramReflect->getName(), $value
+                            );
+                        }
                     }
                 }
-                $str .= ' )';
-            } else {
-                $str .= ' ()';
             }
-
-            $file = $this->getFileName();
-            $line = $this->getLine();
-            if (!empty($file)) {
-                $str .= PHP_EOL.' in file '.$file;
-                if (!empty($line)) {
-                    $str .= ' at line '.$line;
-                }
-            }
-
-            return $str;
-        } catch (\Exception $e) {
-            return $e->__toString();
+            return $this->arguments;
         }
+
+        /**
+         * Representation of the object
+         *
+         * If an exception is caught, its message is returned instead of the
+         * original result (but it is not thrown ahead).
+         *
+         * @return string
+         */
+        public function __toString()
+        {
+            try {
+                $str = 'at ' . $this->getCalled();
+
+                $args = $this->getArguments();
+                if (!empty($args)) {
+                    $str .= ' (';
+                    foreach ($args as $i => $arg) {
+                        $str .= $arg->__toString();
+                        if ($i < count($args) - 1) {
+                            $str .= ' , ';
+                        }
+                    }
+                    $str .= ' )';
+                } else {
+                    $str .= ' ()';
+                }
+
+                $file = $this->getFile();
+                $line = $this->getLine();
+                if (!empty($file)) {
+                    $str .= PHP_EOL . '  called in file ' . $file;
+                    if (!empty($line)) {
+                        $str .= ' at line ' . $line;
+                    }
+                }
+
+                return $str;
+            } catch (\Exception $e) {
+                return $e->__toString();
+            }
+        }
+
     }
 
 }
-
-function _empty_parameter_ghost($param = null) {}
-
 // Endfile

@@ -20,65 +20,67 @@
  * <http://github.com/atelierspierrot/reflectors>.
  */
 
-namespace Reflectors;
+namespace Reflectors\Value;
+
+use \Reflectors\ValueType;
+use \Reflectors\AbstractReflectionValueProxy;
 
 /**
- * Class ReflectionString
+ * The [object](http://php.net/object) value reflector
  */
-class ReflectionString
-    extends AbstractReflectionValue
+class ReflectionObject
+    extends AbstractReflectionValueProxy
 {
 
-    protected $length;
+    /**
+     * @var string The proxy will be an instance of `\ReflectionObject`
+     */
+    protected static $proxy_class = 'ReflectionObject';
 
     /**
-     * @param   string $value
-     * @throws  \ReflectionException if the parameter is not a string
+     * @param   object  $value
+     * @param   int     $flag   A flag used by the `ValueType::getType()` method (not used here)
      */
-    public function __construct($value)
+    public function __construct($value, $flag = ValueType::MODE_STRICT)
     {
-        if (!is_string($value) && !is_numeric($value)) {
-            throw new \ReflectionException(
-                sprintf(__METHOD__.' expects parameter one to be string, %s given', gettype($value))
-            );
-        }
-        $this->type     = 'string';
-        $this->value    = (string) $value;
-        $this->length   = strlen($value);
+        parent::__construct($value, $flag);
+        $this->setReadOnlyProperties($this::$_read_only);
+        $this->type     = ValueType::TYPE_OBJECT;
+        $this->value    = $value;
     }
 
     /**
-     * Returns the current value of the string
+     * Returns the current value
+     *
+     * @return mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * Returns the type of the value
      *
      * @return string
      */
-    public function getString()
+    public function getValueType()
     {
-        return $this->getValue();
-    }
-
-    /**
-     * Returns the length of the string
-     *
-     * @return int
-     */
-    public function getLength()
-    {
-        return $this->length;
+        return $this->type;
     }
 
     /**
      * Representation of the object
      *
      * If an exception is caught, its message is returned instead of the
-     * original result (but its not thrown ahead).
+     * original result (but it is not thrown ahead).
      *
      * @return string
      */
     public function __toString()
     {
         try {
-            return 'String of length '.$this->getLength().' [ "'.$this->getValue().'" ]';
+            return $this->getProxy()->__toString();
         } catch (\Exception $e) {
             return $e->__toString();
         }
