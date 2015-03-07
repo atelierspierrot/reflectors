@@ -10,8 +10,11 @@ go to <https://github.com/atelierspierrot/reflectors/commit/COMMIT_HASH>.
 
 * (upcoming release)
 
-    * f3391b7 - classic master's gitignore (piwi)
-    * d3626bb - no doc in master (piwi)
+    * 62ac9c5 - usage of Sami version 3 (piwi)
+    * 3efd256 - new documentation generation (piwi)
+    * d25f0b9 - review of the demo (piwi)
+    * b7f39c2 - large review of the package: (piwi)
+    * 6d4e032 - new changelog & contribution files (piwi)
     * 606fd9f - add the documentation config (piwi)
     * 7c93d9c - add the documentation (piwi)
     * 9245abe - informational files + manifest (piwi)
