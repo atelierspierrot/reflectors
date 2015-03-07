@@ -1,206 +1,565 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Reflectors\ReflectionTrace | Reflectors</title>
-                    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../classes.html">Classes</a></li>
-                            <li><a href="../namespaces.html">Namespaces</a></li>
-                        <li><a href="../interfaces.html">Interfaces</a></li>
-            <li><a href="../traits.html">Traits</a></li>
-            <li><a href="../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Reflectors\ReflectionTrace | Reflectors (atelierspierrot/reflectors)</title>
 
-        <div id="title">Reflectors</div>
+            <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/sami.css">
+        <script src="../js/jquery-1.11.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/typeahead.min.js"></script>
+        <script src="../sami.js"></script>
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../Reflectors.html">Reflectors</a>\ReflectionTrace</h1>
+    <body id="class" data-name="class:Reflectors_ReflectionTrace" data-root-path="../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>    class
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">Reflectors (atelierspierrot/reflectors)</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../classes.html">Classes</a></li>
+                                            <li><a href="../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../interfaces.html">Interfaces</a></li>
+                    <li><a href="../traits.html">Traits</a></li>
+                    <li><a href="../doc-index.html">Index</a></li>
+                    <li><a href="../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../Reflectors.html">Reflectors</a></li>
+    
+                <li>ReflectionTrace</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>ReflectionTrace</h1>
+    </div>
+
+    <p>    class
     <strong>ReflectionTrace</strong>        implements
         <a href="http://php.net/Reflector"><abbr title="Reflector">Reflector</abbr></a></p>
 
             <div class="description">
-            <p>Class ReflectionTrace</p>
-            <p>
-</p>
-        </div>
+            <p>This is the backtrace item reflector</p>                    </div>
+    
+            <h2>Traits</h2>
+
+        <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="../Reflectors/ReflectorTrait.html"><abbr title="Reflectors\ReflectorTrait">Reflectors\ReflectorTrait</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    Basic implementation of the <code>\Reflector::export()</code> method
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="../Reflectors/ReadOnlyPropertiesTrait.html"><abbr title="Reflectors\ReadOnlyPropertiesTrait">Reflectors\ReadOnlyPropertiesTrait</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    This trait defines magic getters and setters for read-only object's properties
+                </div>
+            </div>
+            </div>
     
     
             <h2>Properties</h2>
 
-            <table>
+            <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_not_real_fcts">
-                    static                                        array
+                    static                                                            array
                 </td>
                 <td>$not_real_fcts</td>
                 <td class="last">
 </td>
+                <td></td>
             </tr>
             </table>
 
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string|null
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_export">export</a>(mixed $argument, bool $return = false)
+                                            <p>Creation of a new instance of the mother class on-the-fly</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Reflectors/ReflectorTrait.html#method_export"><abbr title="Reflectors\ReflectorTrait">ReflectorTrait</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setReadOnlyProperties">setReadOnlyProperties</a>(array $data)
+                                            <p>Defines the read-only properties names and accessors.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Reflectors/ReadOnlyPropertiesTrait.html#method_setReadOnlyProperties"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___get">__get</a>(string $name)
+                                            <p>Magic getter for read-only properties.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___get"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___set">__set</a>(string $name, mixed $value)
+                                            <p>Magic setter to avoid setting read-only properties.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___set"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___unset">__unset</a>(string $name)
+                                            <p>Magic un-setter to avoid un-setting read-only properties.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___unset"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method___construct">__construct</a>(array $trace)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getCalled">getCalled</a>()
-                    <p>Returns a representation of called method or function</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns a representation of called method or function</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_hasObject">hasObject</a>()
+                                            <p>Tests if an object is defined</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     mixed
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getObject">getObject</a>()
-                    <p>Returns the object if defined</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns the object if defined</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     string|null
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getClassName">getClassName</a>()
-                    <p>Returns the class name if defined</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns the class name if defined</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <a href="http://php.net/ReflectionClass"><abbr title="ReflectionClass">ReflectionClass</abbr></a>|null
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getClass">getClass</a>()
-                    <p>Returns the class as a <code>\ReflectionClass</code> object if defined</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns the class as a <code>\ReflectionClass</code> object if defined</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     string|null
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getFunctionName">getFunctionName</a>()
-                    <p>Returns the function name if defined</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns the function name if defined</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <a href="http://php.net/ReflectionFunction"><abbr title="ReflectionFunction">ReflectionFunction</abbr></a>|<a href="http://php.net/ReflectionMethod"><abbr title="ReflectionMethod">ReflectionMethod</abbr></a>|null
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getFunction">getFunction</a>()
-                    <p>Returns the class as a <code>\ReflectionFunction</code> or <code>\ReflectionMethod</code> object if defined</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns the class as a <code>\ReflectionFunction</code> or <code>\ReflectionMethod</code> object if defined</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     int|null
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getLine">getLine</a>()
-                    <p>Returns concerned line if defined</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns concerned line if defined</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     string
-                </td>
-                <td class="last">
-                    <a href="#method_getFileName">getFileName</a>()
-                    <p>Returns concerned file if defined</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getFile">getFile</a>()
+                                            <p>Returns concerned file if defined</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     mixed
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getType">getType</a>()
-                    <p>Returns concerned type if defined</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns concerned type if defined</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     mixed
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getArgs">getArgs</a>()
-                    <p>Returns the trace arguments as the original array</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns the trace arguments as the original array</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     array
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getArguments">getArguments</a>()
-                    <p>Returns the trace arguments as an array of <code>\Reflectors\ReflectionParameterValue</code> or <code>\ReflectionParameter</code> items</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns the trace arguments as an array of <code>\Reflectors\ReflectionParameterValue</code> or <code>\ReflectionParameter</code> items</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method___toString">__toString</a>()
-                    <p>Representation of the object</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+                                            <p>Representation of the object</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method___construct">
-        <div class="location">at line 58</div>
-        <code>            public            
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_export">
+        <div class="location">in <a href="../Reflectors/ReflectorTrait.html#method_export"><abbr title="Reflectors\ReflectorTrait">ReflectorTrait</abbr></a> at line 52</div>
+        <code>        static            string|null
+    <strong>export</strong>(mixed $argument, bool $return = false)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Creation of a new instance of the mother class on-the-fly</p>                    <p>Keep in mind that this method only consider the FIRST argument passed
+to transmit to the constructor. If your mother class requires more than
+one argument, you will have to over-write this method (or to not use the
+trait).</p>            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>mixed</td>
+                <td>$argument</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$return</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
+                <td>if the mother class does not implement the <code>\Reflector</code> interface</td>
+            </tr>
+                    <tr>
+                <td><a href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
+                <td>if the mother class constructor is not callable</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setReadOnlyProperties">
+        <div class="location">in <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method_setReadOnlyProperties"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a> at line 52</div>
+        <code>                    void
+    <strong>setReadOnlyProperties</strong>(array $data)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Defines the read-only properties names and accessors.</p>                    <p>Each <code>key =&gt; value</code> pair of the <code>$data</code> array must be constructed like:</p>
+
+<ul>
+<li><code>key</code> is the name of the property (MUST be defined with <em>protected</em>
+ access in the child class)</li>
+<li><code>value</code> is an accessor for that property: the name of the access method
+ if it exists or <code>true</code> for the default <code>$obj-&gt;$key</code> accessor.</li>
+</ul>
+</p>            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td>This is the table of read-only properties</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="http://php.net/InvalidArgumentException"><abbr title="InvalidArgumentException">InvalidArgumentException</abbr></a></td>
+                <td>if the <code>$data</code> array is malformed</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___get">
+        <div class="location">in <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___get"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a> at line 84</div>
+        <code>                    mixed
+    <strong>__get</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Magic getter for read-only properties.</p>                    <p>This will trigger a notice if the property can not be accessed
+(i.e. is not defined in the <code>$_read_only</code> table).</p>            </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___set">
+        <div class="location">in <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___set"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a> at line 108</div>
+        <code>                    void
+    <strong>__set</strong>(string $name, mixed $value)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Magic setter to avoid setting read-only properties.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
+                <td>if trying to set a read-only property</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___unset">
+        <div class="location">in <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___unset"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a> at line 124</div>
+        <code>                    void
+    <strong>__unset</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Magic un-setter to avoid un-setting read-only properties.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
+                <td>if trying to unset a read-only property</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at line 104</div>
+        <code>                    
     <strong>__construct</strong>(array $trace)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$trace</td>
@@ -215,26 +574,28 @@
                     </div>
     </div>
 
-                <h3 id="method_getCalled">
-        <div class="location">at line 85</div>
-        <code>            public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getCalled">
+        <div class="location">at line 129</div>
+        <code>                    string
     <strong>getCalled</strong>()</code>
     </h3>
     <div class="details">
-        <p>Returns a representation of called method or function</p>
-        <p>Rendering:</p>
+                    <div class="method-description">
+                                    <p>Returns a representation of called method or function</p>                    <p>Rendering:</p>
 
 <pre><code> ClassName::method
  object-&gt;method
  function
  -
 </code></pre>
-</p>
-        <div class="tags">
+</p>            </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>
@@ -247,20 +608,48 @@
                     </div>
     </div>
 
-                <h3 id="method_getObject">
-        <div class="location">at line 102</div>
-        <code>            public            mixed
-    <strong>getObject</strong>()</code>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_hasObject">
+        <div class="location">at line 149</div>
+        <code>                    bool
+    <strong>hasObject</strong>()</code>
     </h3>
     <div class="details">
-        <p>Returns the object if defined</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Tests if an object is defined</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getObject">
+        <div class="location">at line 159</div>
+        <code>                    mixed
+    <strong>getObject</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Returns the object if defined</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
         <tr>
             <td>mixed</td>
             <td>
@@ -273,20 +662,21 @@
                     </div>
     </div>
 
-                <h3 id="method_getClassName">
-        <div class="location">at line 112</div>
-        <code>            public            string|null
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getClassName">
+        <div class="location">at line 169</div>
+        <code>                    string|null
     <strong>getClassName</strong>()</code>
     </h3>
     <div class="details">
-        <p>Returns the class name if defined</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns the class name if defined</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string|null</td>
             <td>
@@ -299,20 +689,21 @@
                     </div>
     </div>
 
-                <h3 id="method_getClass">
-        <div class="location">at line 122</div>
-        <code>            public            <a href="http://php.net/ReflectionClass"><abbr title="ReflectionClass">ReflectionClass</abbr></a>|null
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getClass">
+        <div class="location">at line 179</div>
+        <code>                    <a href="http://php.net/ReflectionClass"><abbr title="ReflectionClass">ReflectionClass</abbr></a>|null
     <strong>getClass</strong>()</code>
     </h3>
     <div class="details">
-        <p>Returns the class as a <code>\ReflectionClass</code> object if defined</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns the class as a <code>\ReflectionClass</code> object if defined</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><a href="http://php.net/ReflectionClass"><abbr title="ReflectionClass">ReflectionClass</abbr></a>|null</td>
             <td>
@@ -325,20 +716,21 @@
                     </div>
     </div>
 
-                <h3 id="method_getFunctionName">
-        <div class="location">at line 135</div>
-        <code>            public            string|null
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFunctionName">
+        <div class="location">at line 193</div>
+        <code>                    string|null
     <strong>getFunctionName</strong>()</code>
     </h3>
     <div class="details">
-        <p>Returns the function name if defined</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns the function name if defined</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string|null</td>
             <td>
@@ -351,20 +743,21 @@
                     </div>
     </div>
 
-                <h3 id="method_getFunction">
-        <div class="location">at line 145</div>
-        <code>            public            <a href="http://php.net/ReflectionFunction"><abbr title="ReflectionFunction">ReflectionFunction</abbr></a>|<a href="http://php.net/ReflectionMethod"><abbr title="ReflectionMethod">ReflectionMethod</abbr></a>|null
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFunction">
+        <div class="location">at line 203</div>
+        <code>                    <a href="http://php.net/ReflectionFunction"><abbr title="ReflectionFunction">ReflectionFunction</abbr></a>|<a href="http://php.net/ReflectionMethod"><abbr title="ReflectionMethod">ReflectionMethod</abbr></a>|null
     <strong>getFunction</strong>()</code>
     </h3>
     <div class="details">
-        <p>Returns the class as a <code>\ReflectionFunction</code> or <code>\ReflectionMethod</code> object if defined</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns the class as a <code>\ReflectionFunction</code> or <code>\ReflectionMethod</code> object if defined</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><a href="http://php.net/ReflectionFunction"><abbr title="ReflectionFunction">ReflectionFunction</abbr></a>|<a href="http://php.net/ReflectionMethod"><abbr title="ReflectionMethod">ReflectionMethod</abbr></a>|null</td>
             <td>
@@ -377,20 +770,21 @@
                     </div>
     </div>
 
-                <h3 id="method_getLine">
-        <div class="location">at line 168</div>
-        <code>            public            int|null
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getLine">
+        <div class="location">at line 227</div>
+        <code>                    int|null
     <strong>getLine</strong>()</code>
     </h3>
     <div class="details">
-        <p>Returns concerned line if defined</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns concerned line if defined</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>int|null</td>
             <td>
@@ -403,20 +797,21 @@
                     </div>
     </div>
 
-                <h3 id="method_getFileName">
-        <div class="location">at line 178</div>
-        <code>            public            string
-    <strong>getFileName</strong>()</code>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFile">
+        <div class="location">at line 237</div>
+        <code>                    string
+    <strong>getFile</strong>()</code>
     </h3>
     <div class="details">
-        <p>Returns concerned file if defined</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns concerned file if defined</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>
@@ -429,20 +824,21 @@
                     </div>
     </div>
 
-                <h3 id="method_getType">
-        <div class="location">at line 188</div>
-        <code>            public            mixed
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getType">
+        <div class="location">at line 247</div>
+        <code>                    mixed
     <strong>getType</strong>()</code>
     </h3>
     <div class="details">
-        <p>Returns concerned type if defined</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns concerned type if defined</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>mixed</td>
             <td>
@@ -455,20 +851,21 @@
                     </div>
     </div>
 
-                <h3 id="method_getArgs">
-        <div class="location">at line 198</div>
-        <code>            public            mixed
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getArgs">
+        <div class="location">at line 257</div>
+        <code>                    mixed
     <strong>getArgs</strong>()</code>
     </h3>
     <div class="details">
-        <p>Returns the trace arguments as the original array</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns the trace arguments as the original array</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>mixed</td>
             <td>
@@ -481,20 +878,21 @@
                     </div>
     </div>
 
-                <h3 id="method_getArguments">
-        <div class="location">at line 208</div>
-        <code>            public            array
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getArguments">
+        <div class="location">at line 267</div>
+        <code>                    array
     <strong>getArguments</strong>()</code>
     </h3>
     <div class="details">
-        <p>Returns the trace arguments as an array of <code>\Reflectors\ReflectionParameterValue</code> or <code>\ReflectionParameter</code> items</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns the trace arguments as an array of <code>\Reflectors\ReflectionParameterValue</code> or <code>\ReflectionParameter</code> items</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>array</td>
             <td>
@@ -507,20 +905,22 @@
                     </div>
     </div>
 
-                <h3 id="method___toString">
-        <div class="location">at line 256</div>
-        <code>            public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___toString">
+        <div class="location">at line 316</div>
+        <code>                    string
     <strong>__toString</strong>()</code>
     </h3>
     <div class="details">
-        <p>Representation of the object</p>
-        <p>If an exception is caught, its message is returned instead of the
-original result (but its not thrown ahead).</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Representation of the object</p>                    <p>If an exception is caught, its message is returned instead of the
+original result (but it is not thrown ahead).</p>            </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>
@@ -533,10 +933,17 @@ original result (but its not thrown ahead).</p>
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Reflectors\ReflectionParameterValue | Reflectors (atelierspierrot/reflectors)</title>
+    <title>Reflectors\ReadOnlyPropertiesTrait | Reflectors (atelierspierrot/reflectors)</title>
 
             <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
@@ -16,7 +16,7 @@
     
     </head>
 
-    <body id="class" data-name="class:Reflectors_ReflectionParameterValue" data-root-path="../">
+    <body id="class" data-name="class:Reflectors_ReadOnlyPropertiesTrait" data-root-path="../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -59,24 +59,26 @@
 
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
+                <li><span class="label label-default">trait</span></li>
                                                             <li><a href="../Reflectors.html">Reflectors</a></li>
     
-                <li>ReflectionParameterValue</li>
+                <li>ReadOnlyPropertiesTrait</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
-        <h1>ReflectionParameterValue</h1>
+        <h1>ReadOnlyPropertiesTrait</h1>
     </div>
 
-    <p>    class
-    <strong>ReflectionParameterValue</strong>        extends <a href="http://php.net/ReflectionParameter"><abbr title="ReflectionParameter">ReflectionParameter</abbr></a>        implements
-        <a href="http://php.net/Reflector"><abbr title="Reflector">Reflector</abbr></a>, <a href="../Reflectors/ReflectionValueInterface.html"><abbr title="Reflectors\ReflectionValueInterface">ReflectionValueInterface</abbr></a></p>
+    <p>    trait
+    <strong>ReadOnlyPropertiesTrait</strong></p>
 
             <div class="description">
-            <p>An extension of the internal <code>\ReflectionParameter</code> with a value</p>                    </div>
+            <p>This trait defines magic getters and setters for read-only object's properties</p>            <p>The read-only properties list MUST be defined in the <code>$_read_only</code> static array
+of the child class (see the documentation of the static property for more information).
+Keep in mind that the magic methods defined here will ONLY consider read-only
+properties (other properties must be handled by the child class).</p>        </div>
     
     
     
@@ -86,12 +88,11 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    
+                    void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(string $function, string $parameter, mixed $value)
-                                            <p class="no-description">No description</p>
-                                    </div>
+                    <a href="#method_setReadOnlyProperties">setReadOnlyProperties</a>(array $data)
+                                            <p>Defines the read-only properties names and accessors.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -99,26 +100,26 @@
                     mixed
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getValue">getValue</a>()
-                                            <p>Returns the value of the parameter</p>                </div>
+                    <a href="#method___get">__get</a>(string $name)
+                                            <p>Magic getter for read-only properties.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    string
+                    void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getValueType">getValueType</a>()
-                                            <p>Returns the type of the parameter</p>                </div>
+                    <a href="#method___set">__set</a>(string $name, mixed $value)
+                                            <p>Magic setter to avoid setting read-only properties.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    string
+                    void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___toString">__toString</a>()
-                                            <p>Representation of the object</p>                </div>
+                    <a href="#method___unset">__unset</a>(string $name)
+                                            <p>Magic un-setter to avoid un-setting read-only properties.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -128,41 +129,51 @@
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method___construct">
-        <div class="location">at line 42</div>
-        <code>                    
-    <strong>__construct</strong>(string $function, string $parameter, mixed $value)</code>
+                    <h3 id="method_setReadOnlyProperties">
+        <div class="location">at line 52</div>
+        <code>                    void
+    <strong>setReadOnlyProperties</strong>(array $data)</code>
     </h3>
     <div class="details">
+                    <div class="method-description">
+                                    <p>Defines the read-only properties names and accessors.</p>                    <p>Each <code>key =&gt; value</code> pair of the <code>$data</code> array must be constructed like:</p>
+
+<ul>
+<li><code>key</code> is the name of the property (MUST be defined with <em>protected</em>
+ access in the child class)</li>
+<li><code>value</code> is an accessor for that property: the name of the access method
+ if it exists or <code>true</code> for the default <code>$obj-&gt;$key</code> accessor.</li>
+</ul>
+</p>            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
-                <td>$function</td>
-                <td>this is the first argument of the original <code>\ReflectionParameter::__construct()</code></td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$parameter</td>
-                <td>this is the second argument of the original <code>\ReflectionParameter::__construct()</code></td>
-            </tr>
-                    <tr>
-                <td>mixed</td>
-                <td>$value</td>
-                <td>the user value of the parameter</td>
+                <td>array</td>
+                <td>$data</td>
+                <td>This is the table of read-only properties</td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>void</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
                             <h4>Exceptions</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
-                <td>caught from parent constructor</td>
+                <td><a href="http://php.net/InvalidArgumentException"><abbr title="InvalidArgumentException">InvalidArgumentException</abbr></a></td>
+                <td>if the <code>$data</code> array is malformed</td>
             </tr>
             </table>
 
@@ -172,15 +183,27 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_getValue">
-        <div class="location">at line 58</div>
+                    <h3 id="method___get">
+        <div class="location">at line 84</div>
         <code>                    mixed
-    <strong>getValue</strong>()</code>
+    <strong>__get</strong>(string $name)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Returns the value of the parameter</p>                                </div>
+                                    <p>Magic getter for read-only properties.</p>                    <p>This will trigger a notice if the property can not be accessed
+(i.e. is not defined in the <code>$_read_only</code> table).</p>            </div>
                 <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
             
                             <h4>Return Value</h4>
 
@@ -199,55 +222,100 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_getValueType">
-        <div class="location">at line 68</div>
-        <code>                    string
-    <strong>getValueType</strong>()</code>
+                    <h3 id="method___set">
+        <div class="location">at line 108</div>
+        <code>                    void
+    <strong>__set</strong>(string $name, mixed $value)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Returns the type of the parameter</p>                                </div>
+                                    <p>Magic setter to avoid setting read-only properties.</p>                                </div>
                 <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>void</td>
             <td>
 </td>
         </tr>
     </table>
 
             
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
+                <td>if trying to set a read-only property</td>
+            </tr>
+            </table>
+
             
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
-                    <h3 id="method___toString">
-        <div class="location">at line 81</div>
-        <code>                    string
-    <strong>__toString</strong>()</code>
+                    <h3 id="method___unset">
+        <div class="location">at line 124</div>
+        <code>                    void
+    <strong>__unset</strong>(string $name)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Representation of the object</p>                    <p>If an exception is caught, its message is returned instead of the
-original result (but it is not thrown ahead).</p>            </div>
+                                    <p>Magic un-setter to avoid un-setting read-only properties.</p>                                </div>
                 <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>void</td>
             <td>
 </td>
         </tr>
     </table>
 
             
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
+                <td>if trying to unset a read-only property</td>
+            </tr>
+            </table>
+
             
                     </div>
     </div>
