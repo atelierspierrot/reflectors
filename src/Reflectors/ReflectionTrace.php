@@ -33,15 +33,13 @@ namespace Reflectors
 
     /**
      * This is the backtrace item reflector
+     *
+     * @TODO redraw the _empty_parameter_ghost in the same namespace (closure ?)
      */
     class ReflectionTrace
         implements \Reflector
     {
 
-        /**
-         * This class inherits from \Reflectors\ReflectorTrait
-         * This class inherits from \Reflectors\ReadOnlyPropertiesTrait
-         */
         use ReflectorTrait, ReadOnlyPropertiesTrait;
 
         /**

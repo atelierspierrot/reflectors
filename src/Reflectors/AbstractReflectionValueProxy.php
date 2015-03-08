@@ -30,7 +30,7 @@ abstract class AbstractReflectionValueProxy
 {
 
     /**
-     * @var string Define there the reflection class to use.
+     * @var string Define here the reflection class to use.
      */
     protected static $proxy_class = null;
 
@@ -40,10 +40,9 @@ abstract class AbstractReflectionValueProxy
      * Constructor. You MUST call this one to prepare proxy.
      *
      * @param   object  $value
-     * @param   int     $flag   A flag used by the `ValueType::getType()` method
      * @throws  \ErrorException if the `$proxy_class` does not exist or is not instantiable
      */
-    public function __construct($value, $flag = ValueType::MODE_STRICT)
+    public function __construct($value)
     {
         parent::__construct($value);
         if (!empty($this::$proxy_class)) {

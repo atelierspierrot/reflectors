@@ -29,10 +29,6 @@ class ReflectionSource
     implements \Reflector
 {
 
-    /**
-     * This class inherits from \Reflectors\ReflectorTrait
-     * This class inherits from \Reflectors\ReadOnlyPropertiesTrait
-     */
     use ReflectorTrait, ReadOnlyPropertiesTrait;
 
     /**

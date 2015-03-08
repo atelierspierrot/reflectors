@@ -34,10 +34,6 @@ abstract class AbstractReflectionValue
     implements ReflectionValueInterface
 {
 
-    /**
-     * This class inherits from \Reflectors\ReflectorTrait
-     * This class inherits from \Reflectors\ReadOnlyPropertiesTrait
-     */
     use ReflectorTrait, ReadOnlyPropertiesTrait;
 
     protected static $_read_only = array(

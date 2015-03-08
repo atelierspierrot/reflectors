@@ -29,10 +29,6 @@ class ReflectionValue
     implements ReflectionValueInterface
 {
 
-    /**
-     * This class inherits from \Reflectors\ReflectorTrait
-     * This class inherits from \Reflectors\ReadOnlyPropertiesTrait
-     */
     use ReflectorTrait, ReadOnlyPropertiesTrait;
 
     /**

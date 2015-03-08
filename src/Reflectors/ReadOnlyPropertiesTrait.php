@@ -25,8 +25,8 @@ namespace Reflectors;
 /**
  * This trait defines magic getters and setters for read-only object's properties
  *
- * The read-only properties list MUST be defined in the `$_read_only` static array
- * of the child class (see the documentation of the static property for more information).
+ * The read-only properties list MUST be declared via the `setReadOnlyProperties()` method
+ * of this class (see the documentation of the method for more information).
  * Keep in mind that the magic methods defined here will ONLY consider read-only
  * properties (other properties must be handled by the child class).
  */
@@ -75,8 +75,7 @@ trait ReadOnlyPropertiesTrait
     /**
      * Magic getter for read-only properties.
      *
-     * This will trigger a notice if the property can not be accessed
-     * (i.e. is not defined in the `$_read_only` table).
+     * This will trigger a notice if the property can not be accessed.
      *
      * @param   string  $name
      * @return  mixed
