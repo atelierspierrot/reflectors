@@ -17,7 +17,7 @@ If you are a [Composer](http://getcomposer.org/) user, just add the package to t
 requirements of your project's `composer.json` manifest file:
 
 ```json
-"atelierspierrot/service-container": "dev-master"
+"atelierspierrot/reflectors": "dev-master"
 ```
 
 You can use a specific release or the latest release of a major version using the appropriate
