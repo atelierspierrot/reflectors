@@ -27,6 +27,8 @@ use \Reflectors\AbstractReflectionValue;
 
 /**
  * The [resource](http://php.net/resource) value reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionResource
     extends AbstractReflectionValue

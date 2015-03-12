@@ -28,6 +28,8 @@ use \Reflectors\AbstractReflectionValue;
 
 /**
  * The [array](http://php.net/array) value reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionArray
     extends AbstractReflectionValue

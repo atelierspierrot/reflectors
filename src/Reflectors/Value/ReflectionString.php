@@ -27,6 +27,8 @@ use \Reflectors\AbstractReflectionValue;
 
 /**
  * The [string](http://php.net/string) value reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionString
     extends AbstractReflectionValue

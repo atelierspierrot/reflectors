@@ -25,7 +25,7 @@ namespace Reflectors;
 /**
  * This interface is designed to build generic objects reflecting a variable with its value and type.
  *
- * It forces to construct
+ * @author  piwi <me@e-piwi.fr>
  */
 interface ReflectionValueInterface
     extends \Reflector

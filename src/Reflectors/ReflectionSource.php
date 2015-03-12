@@ -24,15 +24,13 @@ namespace Reflectors;
 
 /**
  * The source reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionSource
     implements \Reflector
 {
 
-    /**
-     * This class inherits from \Reflectors\ReflectorTrait
-     * This class inherits from \Reflectors\ReadOnlyPropertiesTrait
-     */
     use ReflectorTrait, ReadOnlyPropertiesTrait;
 
     /**

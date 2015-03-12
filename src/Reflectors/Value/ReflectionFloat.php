@@ -27,6 +27,8 @@ use \Reflectors\AbstractReflectionValue;
 
 /**
  * The [float](http://php.net/float) value reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionFloat
     extends AbstractReflectionValue

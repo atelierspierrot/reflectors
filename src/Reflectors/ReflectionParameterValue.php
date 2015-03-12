@@ -24,6 +24,8 @@ namespace Reflectors;
 
 /**
  * An extension of the internal `\ReflectionParameter` with a value
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionParameterValue
     extends \ReflectionParameter

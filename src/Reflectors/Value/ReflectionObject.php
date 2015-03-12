@@ -27,6 +27,8 @@ use \Reflectors\AbstractReflectionValueProxy;
 
 /**
  * The [object](http://php.net/object) value reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionObject
     extends AbstractReflectionValueProxy

@@ -24,15 +24,13 @@ namespace Reflectors;
 
 /**
  * The backtrace reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionBacktrace
     implements \Reflector
 {
 
-    /**
-     * This class inherits from \Reflectors\ReflectorTrait
-     * This class inherits from \Reflectors\ReadOnlyPropertiesTrait
-     */
     use ReflectorTrait, ReadOnlyPropertiesTrait;
 
     protected static $_read_only = array(

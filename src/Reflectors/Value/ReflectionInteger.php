@@ -27,6 +27,8 @@ use \Reflectors\AbstractReflectionValue;
 
 /**
  * The [integer](http://php.net/integer) value reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionInteger
     extends AbstractReflectionValue

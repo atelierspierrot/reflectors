@@ -53,6 +53,8 @@ namespace Reflectors;
  * -    method of instantiated object
  * -    static method of a class
  * -    object
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ValueType
 {

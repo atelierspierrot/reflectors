@@ -27,6 +27,8 @@ use \Reflectors\AbstractReflectionValue;
 
 /**
  * The "unknown" typed value reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionUnknown
     extends AbstractReflectionValue

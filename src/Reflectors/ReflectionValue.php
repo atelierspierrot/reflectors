@@ -24,15 +24,13 @@ namespace Reflectors;
 
 /**
  * This is the global variable value reflector object. It acts like a reflection proxy.
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionValue
     implements ReflectionValueInterface
 {
 
-    /**
-     * This class inherits from \Reflectors\ReflectorTrait
-     * This class inherits from \Reflectors\ReadOnlyPropertiesTrait
-     */
     use ReflectorTrait, ReadOnlyPropertiesTrait;
 
     /**
