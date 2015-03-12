@@ -27,6 +27,8 @@ use \Reflectors\AbstractReflectionValue;
 
 /**
  * The [NULL](http://php.net/null) value reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionNull
     extends AbstractReflectionValue

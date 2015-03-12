@@ -29,6 +29,8 @@ namespace Reflectors;
  * that implement the [`\Reflector` interface](http://php.net/Reflector).
  * The method will basically try to call current class constructor passing it
  * the first argument received and then returns or echoes its representation.
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 trait ReflectorTrait
 {

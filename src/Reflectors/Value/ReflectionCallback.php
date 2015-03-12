@@ -28,6 +28,8 @@ use \Reflectors\ReflectionCallback as GenericReflectionCallback;
 
 /**
  * The [callback](http://php.net/callable) value reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionCallback
     extends AbstractReflectionValueProxy

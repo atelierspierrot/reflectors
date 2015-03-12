@@ -29,6 +29,8 @@ namespace Reflectors;
  * of this class (see the documentation of the method for more information).
  * Keep in mind that the magic methods defined here will ONLY consider read-only
  * properties (other properties must be handled by the child class).
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 trait ReadOnlyPropertiesTrait
 {

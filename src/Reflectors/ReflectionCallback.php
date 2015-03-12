@@ -24,6 +24,8 @@ namespace Reflectors;
 
 /**
  * The callback global reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionCallback
     implements \Reflector

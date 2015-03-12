@@ -24,6 +24,8 @@ namespace Reflectors;
 
 /**
  * The source reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionSource
     implements \Reflector

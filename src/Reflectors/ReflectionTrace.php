@@ -24,6 +24,8 @@ namespace Reflectors;
 
 /**
  * This is the backtrace item reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionTrace
     implements \Reflector

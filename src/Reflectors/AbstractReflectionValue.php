@@ -29,6 +29,8 @@ namespace Reflectors;
  * with implementation of the `getValue()` and `getValueType()`
  * methods of the `\Reflectors\ReflectionVariableInterface`.
  * The `$value` and `$type` properties are read-only.
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 abstract class AbstractReflectionValue
     implements ReflectionValueInterface

@@ -27,6 +27,8 @@ use \Reflectors\AbstractReflectionValue;
 
 /**
  * The [boolean](http://php.net/boolean) value reflector
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class ReflectionBoolean
     extends AbstractReflectionValue

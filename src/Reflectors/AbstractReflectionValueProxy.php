@@ -24,6 +24,8 @@ namespace Reflectors;
 
 /**
  * Use this class to define a `ReflectionValue...` object that depends on another one.
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 abstract class AbstractReflectionValueProxy
     extends AbstractReflectionValue
