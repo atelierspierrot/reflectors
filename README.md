@@ -33,7 +33,7 @@ Author & License
 
 >    Copyright (c) 2015 Pierre Cassat and contributors
 
->    Licensed under the GPL Apache 2 license.
+>    Licensed under the Apache 2 license.
 
 >    http://www.apache.org/licenses/LICENSE-2.0
 
