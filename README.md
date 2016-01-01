@@ -2,6 +2,8 @@ Reflectors
 ==========
 
 [![documentation](http://img.ateliers-pierrot-static.fr/read-the-doc.svg)](http://docs.ateliers-pierrot.fr/reflectors/)
+[![Code Climate](http://codeclimate.com/github/atelierspierrot/reflectors/badges/gpa.svg)](http://codeclimate.com/github/atelierspierrot/reflectors)
+
 Some PHP Reflectors objects to complete the [internal Reflection](http://php.net/manual/book.reflection.php).
 All objects defined in this package implement the [\Reflector interface](http://php.net/manual/class.reflector.php)
 and generate a simple output to keep compliant with existing internal reflection objects.
@@ -31,7 +33,7 @@ Author & License
 
 >    http://github.com/atelierspierrot/reflectors
 
->    Copyright (c) 2015 Pierre Cassat and contributors
+>    Copyright (c) 2015-2016 Pierre Cassat and contributors
 
 >    Licensed under the Apache 2 license.
 

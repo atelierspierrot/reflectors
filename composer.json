@@ -19,9 +19,16 @@
     "require-dev": {
         "sami/sami": "@stable",
         "phpunit/phpunit": "@stable",
+        "fabpot/php-cs-fixer": "@stable",
         "phpmd/phpmd" : "@stable"
     },
-    "autoload": { "psr-0": {  "Reflectors": "src" } },
+    "autoload": { "psr-4": {  "Reflectors\\": "src/Reflectors/" } },
+    "scripts": {
+        "test": "php vendor/bin/phpunit",
+        "build-doc": "php vendor/bin/sami.php update .sami.php",
+        "update-doc": "php vendor/bin/sami.php update .sami.php",
+        "cs-fixer": "php vendor/bin/php-cs-fixer fix -v"
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"

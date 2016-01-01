@@ -2,7 +2,7 @@
 /**
  * This file is part of the Reflectors package.
  *
- * Copyright (c) 2013-2015 Pierre Cassat <me@e-piwi.fr> and contributors
+ * Copyright (c) 2015-2016 Pierre Cassat <me@e-piwi.fr> and contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -257,7 +257,6 @@ class ValueType
         if (is_object($callback) && ($callback instanceof \Closure)) {
             return self::CALLBACK_CLOSURE;
         } else {
-
             if (is_string($callback)) {
                 $parts = explode('::', $callback);
             } elseif (is_array($callback)) {
@@ -267,7 +266,7 @@ class ValueType
             }
 
             if (count($parts) === 1) {
-/*
+                /*
 // this is not good right ?
                 if (is_object($parts[0])) {
                     return self::CALLBACK_OBJECT;
@@ -455,7 +454,4 @@ class ValueType
     {
         return (bool) is_resource($value);
     }
-
 }
-
-// Endfile
