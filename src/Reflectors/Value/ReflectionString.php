@@ -2,7 +2,7 @@
 /**
  * This file is part of the Reflectors package.
  *
- * Copyright (c) 2013-2015 Pierre Cassat <me@e-piwi.fr> and contributors
+ * Copyright (c) 2015-2016 Pierre Cassat <me@e-piwi.fr> and contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -101,7 +101,4 @@ class ReflectionString
             return $e->__toString();
         }
     }
-
 }
-
-// Endfile

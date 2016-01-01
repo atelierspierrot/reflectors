@@ -12,6 +12,9 @@
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/typeahead.min.js"></script>
         <script src="../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     
     
     </head>
@@ -72,7 +75,8 @@
     </div>
 
     <p>    trait
-    <strong>ReflectorTrait</strong></p>
+    <strong>ReflectorTrait</strong>
+</p>
 
             <div class="description">
             <p>Basic implementation of the <code>\Reflector::export()</code> method</p>            <p>This trait defines a global <code>export()</code> method for objects
@@ -88,10 +92,13 @@ the first argument received and then returns or echoes its representation.</p>  
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;string|null
+                    static&nbsp;
+    string|null
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_export">export</a>(mixed $argument, bool $return = false)
+                    <a href="#method_export">export</a>(
+    mixed $argument, 
+    bool $return = false)
                                             <p>Creation of a new instance of the mother class on-the-fly</p>                </div>
                 <div class="col-md-2"></div>
             </div>
@@ -103,9 +110,12 @@ the first argument received and then returns or echoes its representation.</p>  
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_export">
-        <div class="location">at line 52</div>
-        <code>        static            string|null
-    <strong>export</strong>(mixed $argument, bool $return = false)</code>
+        <div class="location">at line 54</div>
+        <code>        static            
+    string|null
+    <strong>export</strong>(
+    mixed $argument, 
+    bool $return = false)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -118,13 +128,15 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$argument</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>bool</td>
+                <td>
+    bool</td>
                 <td>$return</td>
                 <td>
 </td>
@@ -136,7 +148,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>string|null</td>
+            <td>
+    string|null</td>
             <td>
 </td>
         </tr>
@@ -147,11 +160,11 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
+                <td><a target="_blank" href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
                 <td>if the mother class does not implement the <code>\Reflector</code> interface</td>
             </tr>
                     <tr>
-                <td><a href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
+                <td><a target="_blank" href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
                 <td>if the mother class constructor is not callable</td>
             </tr>
             </table>

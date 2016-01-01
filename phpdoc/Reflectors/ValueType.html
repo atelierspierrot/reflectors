@@ -12,6 +12,9 @@
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/typeahead.min.js"></script>
         <script src="../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     
     
     </head>
@@ -72,7 +75,8 @@
     </div>
 
     <p>    class
-    <strong>ValueType</strong></p>
+    <strong>ValueType</strong>
+</p>
 
             <div class="description">
             <p>This only defines possible value types as constants and validators static methods.</p>            <p>The internal PHP types returned by the <a href="http://php.net/gettype"><code>gettype()</code> function</a> are:</p>
@@ -299,7 +303,8 @@ behavior (see the documented constants of this class).</p>
             <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_ordered_types">
-                    static                                                            array
+                    static                                                            
+    array
                 </td>
                 <td>$ordered_types</td>
                 <td class="last">
@@ -314,145 +319,186 @@ behavior (see the documented constants of this class).</p>
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;string
+                    static&nbsp;
+    string
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getType">getType</a>(mixed $value, int $flag = self::MODE_STRICT, array $order = null)
+                    <a href="#method_getType">getType</a>(
+    mixed $value, 
+    int $flag = self::MODE_STRICT, 
+    array $order = null)
                                             <p>Returns a value type by testing it in the <code>$order</code> order.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;<a href="../Reflectors/ReflectionValueInterface.html"><abbr title="Reflectors\ReflectionValueInterface">ReflectionValueInterface</abbr></a>
+                    static&nbsp;
+    <a href="../Reflectors/ReflectionValueInterface.html"><abbr title="Reflectors\ReflectionValueInterface">ReflectionValueInterface</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getReflector">getReflector</a>(mixed $value, int $flag = self::MODE_STRICT, array $order = null)
+                    <a href="#method_getReflector">getReflector</a>(
+    mixed $value, 
+    int $flag = self::MODE_STRICT, 
+    array $order = null)
                                             <p>Returns a reflector for the value by testing its type in the <code>$order</code> order.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;int|null
+                    static&nbsp;
+    int|null
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getCallbackType">getCallbackType</a>(callable $callback)
+                    <a href="#method_getCallbackType">getCallbackType</a>(
+    callable $callback)
                                             <p>Returns the type of a callback</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;
+    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isNull">isNull</a>(mixed $value = null)
+                    <a href="#method_isNull">isNull</a>(
+    mixed $value = null)
                                             <p>Tests if a value is null</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;
+    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isBoolean">isBoolean</a>(mixed $value = null, int $flag = self::MODE_STRICT)
+                    <a href="#method_isBoolean">isBoolean</a>(
+    mixed $value = null, 
+    int $flag = self::MODE_STRICT)
                                             <p>Tests if a value is a boolean</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;
+    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isInteger">isInteger</a>(mixed $value = null, int $flag = self::MODE_STRICT)
+                    <a href="#method_isInteger">isInteger</a>(
+    mixed $value = null, 
+    int $flag = self::MODE_STRICT)
                                             <p>Tests if a value is an integer</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;
+    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isFloat">isFloat</a>(mixed $value = null)
+                    <a href="#method_isFloat">isFloat</a>(
+    mixed $value = null)
                                             <p>Tests if a value is a float</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;
+    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isDouble">isDouble</a>(mixed $value = null)
+                    <a href="#method_isDouble">isDouble</a>(
+    mixed $value = null)
                                             <p>Tests if a value is a double (alias of <code>self::isFloat()</code>)</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;
+    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isRealNumber">isRealNumber</a>(mixed $value = null)
+                    <a href="#method_isRealNumber">isRealNumber</a>(
+    mixed $value = null)
                                             <p>Tests if a value is a "real number" (alias of <code>self::isFloat()</code>)</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;
+    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isString">isString</a>(mixed $value = null, int $flag = self::MODE_STRICT)
+                    <a href="#method_isString">isString</a>(
+    mixed $value = null, 
+    int $flag = self::MODE_STRICT)
                                             <p>Tests if a value is a string</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;
+    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isArray">isArray</a>(mixed $value = null, int $flag = self::MODE_STRICT)
+                    <a href="#method_isArray">isArray</a>(
+    mixed $value = null, 
+    int $flag = self::MODE_STRICT)
                                             <p>Tests if a value is an array</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;
+    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isObject">isObject</a>(mixed $value = null, int $flag = self::MODE_STRICT)
+                    <a href="#method_isObject">isObject</a>(
+    mixed $value = null, 
+    int $flag = self::MODE_STRICT)
                                             <p>Tests if a value is an object</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;
+    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isClosure">isClosure</a>(mixed $value = null)
+                    <a href="#method_isClosure">isClosure</a>(
+    mixed $value = null)
                                             <p>Tests if a value is a closure (alias of <code>self::isCallback()</code>)</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;
+    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isCallable">isCallable</a>(mixed $value = null)
+                    <a href="#method_isCallable">isCallable</a>(
+    mixed $value = null)
                                             <p>Tests if a value is callable (alias of <code>self::isCallback()</code>)</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;
+    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isCallback">isCallback</a>(mixed $value = null)
+                    <a href="#method_isCallback">isCallback</a>(
+    mixed $value = null)
                                             <p>Tests if a value is a valid callback</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;bool
+                    static&nbsp;
+    bool
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_isResource">isResource</a>(mixed $value = null)
+                    <a href="#method_isResource">isResource</a>(
+    mixed $value = null)
                                             <p>Tests if a value is a resource</p>                </div>
                 <div class="col-md-2"></div>
             </div>
@@ -464,9 +510,13 @@ behavior (see the documented constants of this class).</p>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_getType">
-        <div class="location">at line 198</div>
-        <code>        static            string
-    <strong>getType</strong>(mixed $value, int $flag = self::MODE_STRICT, array $order = null)</code>
+        <div class="location">at line 200</div>
+        <code>        static            
+    string
+    <strong>getType</strong>(
+    mixed $value, 
+    int $flag = self::MODE_STRICT, 
+    array $order = null)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -478,19 +528,22 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$flag</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$order</td>
                 <td>
 </td>
@@ -502,7 +555,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>
 </td>
         </tr>
@@ -513,7 +567,7 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="http://php.net/InvalidArgumentException"><abbr title="InvalidArgumentException">InvalidArgumentException</abbr></a></td>
+                <td><a target="_blank" href="http://php.net/InvalidArgumentException"><abbr title="InvalidArgumentException">InvalidArgumentException</abbr></a></td>
                 <td>if an item of the <code>$order</code> array does not seem to be a valid type</td>
             </tr>
             </table>
@@ -525,9 +579,13 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_getReflector">
-        <div class="location">at line 229</div>
-        <code>        static            <a href="../Reflectors/ReflectionValueInterface.html"><abbr title="Reflectors\ReflectionValueInterface">ReflectionValueInterface</abbr></a>
-    <strong>getReflector</strong>(mixed $value, int $flag = self::MODE_STRICT, array $order = null)</code>
+        <div class="location">at line 231</div>
+        <code>        static            
+    <a href="../Reflectors/ReflectionValueInterface.html"><abbr title="Reflectors\ReflectionValueInterface">ReflectionValueInterface</abbr></a>
+    <strong>getReflector</strong>(
+    mixed $value, 
+    int $flag = self::MODE_STRICT, 
+    array $order = null)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -537,19 +595,22 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$flag</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$order</td>
                 <td>
 </td>
@@ -561,7 +622,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../Reflectors/ReflectionValueInterface.html"><abbr title="Reflectors\ReflectionValueInterface">ReflectionValueInterface</abbr></a></td>
+            <td>
+    <a href="../Reflectors/ReflectionValueInterface.html"><abbr title="Reflectors\ReflectionValueInterface">ReflectionValueInterface</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -575,9 +637,11 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_getCallbackType">
-        <div class="location">at line 253</div>
-        <code>        static            int|null
-    <strong>getCallbackType</strong>(callable $callback)</code>
+        <div class="location">at line 255</div>
+        <code>        static            
+    int|null
+    <strong>getCallbackType</strong>(
+    callable $callback)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -587,7 +651,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>callable</td>
+                <td>
+    callable</td>
                 <td>$callback</td>
                 <td>
 </td>
@@ -599,7 +664,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>int|null</td>
+            <td>
+    int|null</td>
             <td>
 </td>
         </tr>
@@ -613,9 +679,11 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_isNull">
-        <div class="location">at line 293</div>
-        <code>        static            bool
-    <strong>isNull</strong>(mixed $value = null)</code>
+        <div class="location">at line 294</div>
+        <code>        static            
+    bool
+    <strong>isNull</strong>(
+    mixed $value = null)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -625,7 +693,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
@@ -637,7 +706,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -651,9 +721,12 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_isBoolean">
-        <div class="location">at line 305</div>
-        <code>        static            bool
-    <strong>isBoolean</strong>(mixed $value = null, int $flag = self::MODE_STRICT)</code>
+        <div class="location">at line 306</div>
+        <code>        static            
+    bool
+    <strong>isBoolean</strong>(
+    mixed $value = null, 
+    int $flag = self::MODE_STRICT)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -663,13 +736,15 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$flag</td>
                 <td>
 </td>
@@ -681,7 +756,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -695,9 +771,12 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_isInteger">
-        <div class="location">at line 320</div>
-        <code>        static            bool
-    <strong>isInteger</strong>(mixed $value = null, int $flag = self::MODE_STRICT)</code>
+        <div class="location">at line 321</div>
+        <code>        static            
+    bool
+    <strong>isInteger</strong>(
+    mixed $value = null, 
+    int $flag = self::MODE_STRICT)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -707,13 +786,15 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$flag</td>
                 <td>
 </td>
@@ -725,7 +806,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -739,9 +821,11 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_isFloat">
-        <div class="location">at line 334</div>
-        <code>        static            bool
-    <strong>isFloat</strong>(mixed $value = null)</code>
+        <div class="location">at line 335</div>
+        <code>        static            
+    bool
+    <strong>isFloat</strong>(
+    mixed $value = null)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -751,7 +835,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
@@ -763,7 +848,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -777,9 +863,11 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_isDouble">
-        <div class="location">at line 346</div>
-        <code>        static            bool
-    <strong>isDouble</strong>(mixed $value = null)</code>
+        <div class="location">at line 347</div>
+        <code>        static            
+    bool
+    <strong>isDouble</strong>(
+    mixed $value = null)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -789,7 +877,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
@@ -801,7 +890,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -824,9 +914,11 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_isRealNumber">
-        <div class="location">at line 358</div>
-        <code>        static            bool
-    <strong>isRealNumber</strong>(mixed $value = null)</code>
+        <div class="location">at line 359</div>
+        <code>        static            
+    bool
+    <strong>isRealNumber</strong>(
+    mixed $value = null)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -836,7 +928,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
@@ -848,7 +941,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -871,9 +965,12 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_isString">
-        <div class="location">at line 370</div>
-        <code>        static            bool
-    <strong>isString</strong>(mixed $value = null, int $flag = self::MODE_STRICT)</code>
+        <div class="location">at line 371</div>
+        <code>        static            
+    bool
+    <strong>isString</strong>(
+    mixed $value = null, 
+    int $flag = self::MODE_STRICT)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -883,13 +980,15 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$flag</td>
                 <td>
 </td>
@@ -901,7 +1000,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -915,9 +1015,12 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_isArray">
-        <div class="location">at line 388</div>
-        <code>        static            bool
-    <strong>isArray</strong>(mixed $value = null, int $flag = self::MODE_STRICT)</code>
+        <div class="location">at line 389</div>
+        <code>        static            
+    bool
+    <strong>isArray</strong>(
+    mixed $value = null, 
+    int $flag = self::MODE_STRICT)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -927,13 +1030,15 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$flag</td>
                 <td>
 </td>
@@ -945,7 +1050,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -959,9 +1065,12 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_isObject">
-        <div class="location">at line 403</div>
-        <code>        static            bool
-    <strong>isObject</strong>(mixed $value = null, int $flag = self::MODE_STRICT)</code>
+        <div class="location">at line 404</div>
+        <code>        static            
+    bool
+    <strong>isObject</strong>(
+    mixed $value = null, 
+    int $flag = self::MODE_STRICT)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -971,13 +1080,15 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$flag</td>
                 <td>
 </td>
@@ -989,7 +1100,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -1003,9 +1115,11 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_isClosure">
-        <div class="location">at line 418</div>
-        <code>        static            bool
-    <strong>isClosure</strong>(mixed $value = null)</code>
+        <div class="location">at line 419</div>
+        <code>        static            
+    bool
+    <strong>isClosure</strong>(
+    mixed $value = null)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -1015,7 +1129,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
@@ -1027,7 +1142,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -1050,9 +1166,11 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_isCallable">
-        <div class="location">at line 430</div>
-        <code>        static            bool
-    <strong>isCallable</strong>(mixed $value = null)</code>
+        <div class="location">at line 431</div>
+        <code>        static            
+    bool
+    <strong>isCallable</strong>(
+    mixed $value = null)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -1062,7 +1180,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
@@ -1074,7 +1193,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -1097,9 +1217,11 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_isCallback">
-        <div class="location">at line 441</div>
-        <code>        static            bool
-    <strong>isCallback</strong>(mixed $value = null)</code>
+        <div class="location">at line 442</div>
+        <code>        static            
+    bool
+    <strong>isCallback</strong>(
+    mixed $value = null)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -1109,7 +1231,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
@@ -1121,7 +1244,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -1135,9 +1259,11 @@ behavior (see the documented constants of this class).</p>
             </div>
                     <div class="method-item">
                     <h3 id="method_isResource">
-        <div class="location">at line 452</div>
-        <code>        static            bool
-    <strong>isResource</strong>(mixed $value = null)</code>
+        <div class="location">at line 453</div>
+        <code>        static            
+    bool
+    <strong>isResource</strong>(
+    mixed $value = null)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -1147,7 +1273,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
@@ -1159,7 +1286,8 @@ behavior (see the documented constants of this class).</p>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>

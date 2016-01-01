@@ -1,5 +1,5 @@
 <?php
-    
+
 /**
  * Show errors at least initially
  *
@@ -7,7 +7,7 @@
  * `E_ALL & ~E_STRICT` => for hard dev in PHP5.4 avoiding strict warnings
  * `E_ALL & ~E_NOTICE & ~E_STRICT` => classic setting
  */
-@ini_set('display_errors','1'); @error_reporting(E_ALL);
+@ini_set('display_errors', '1'); @error_reporting(E_ALL);
 //@ini_set('display_errors','1'); @error_reporting(E_ALL & ~E_STRICT);
 //@ini_set('display_errors','1'); @error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 
@@ -125,54 +125,70 @@ if (file_exists($a = __DIR__.'/../../../autoload.php')) {
 
 
 <?php
-function testFunction($my_arg1, $my_arg2 = 4, array $my_arg3 = array('one', 'two', 'three'=>'value')) {}
+function testFunction($my_arg1, $my_arg2 = 4, array $my_arg3 = array('one', 'two', 'three'=>'value'))
+{
+}
 
-function throwException($str) {
+function throwException($str)
+{
     throw new \Exception($str);
 }
 
-class MySmallObject {
+class MySmallObject
+{
     public $name;
     protected $type;
-    static $_defaults = array();
-    public function __construct($name, $type = 'anonymous', $opt = array('on','two','azerty'=>'three')) {
+    public static $_defaults = array();
+    public function __construct($name, $type = 'anonymous', $opt = array('on', 'two', 'azerty'=>'three'))
+    {
         $this->name = $name;
         $this->type = $type;
     }
-    function setSelf(MySmallObject $obj){
+    public function setSelf(MySmallObject $obj)
+    {
         return 'this is the return of '.__METHOD__;
     }
-    function testFunctionPublic($my_arg1, $my_arg2 = 4, array $my_arg3 = array('one', 'two', 'three'=>'value')) {
+    public function testFunctionPublic($my_arg1, $my_arg2 = 4, array $my_arg3 = array('one', 'two', 'three'=>'value'))
+    {
         return 'this is the return of '.__METHOD__;
     }
-    protected function testFunctionProtected($my_arg1, $my_arg2 = 4, array $my_arg3 = array('one', 'two', 'three'=>'value')) {
+    protected function testFunctionProtected($my_arg1, $my_arg2 = 4, array $my_arg3 = array('one', 'two', 'three'=>'value'))
+    {
         return 'this is the return of '.__METHOD__;
     }
-    private function testFunctionPrivate($my_arg1, $my_arg2 = 4, array $my_arg3 = array('one', 'two', 'three'=>'value')) {
+    private function testFunctionPrivate($my_arg1, $my_arg2 = 4, array $my_arg3 = array('one', 'two', 'three'=>'value'))
+    {
         return 'this is the return of '.__METHOD__;
     }
-    static function testFunctionStatic($my_arg1, $my_arg2 = 4, array $my_arg3 = array('one', 'two', 'three'=>'value')) {
+    public static function testFunctionStatic($my_arg1, $my_arg2 = 4, array $my_arg3 = array('one', 'two', 'three'=>'value'))
+    {
         return 'this is the return of '.__METHOD__;
     }
-    function throwExceptionCaller($str, $arg2 = 'my string') {
+    public function throwExceptionCaller($str, $arg2 = 'my string')
+    {
         $this->name = $str;
         return $this->throwException($arg2, $this);
     }
-    function throwException($str, MySmallObject $object = null) {
+    public function throwException($str, MySmallObject $object = null)
+    {
         throw new \Exception($str);
     }
-    function triggerErrorCaller($str, $arg2 = 'my string') {
+    public function triggerErrorCaller($str, $arg2 = 'my string')
+    {
         $this->name = $str;
         return $this->triggerError($arg2, $this);
     }
-    function triggerError($str, MySmallObject $object = null) {
+    public function triggerError($str, MySmallObject $object = null)
+    {
         user_error($str, E_USER_ERROR);
     }
-    function backtraceCaller($str, $arg2 = 'my string') {
+    public function backtraceCaller($str, $arg2 = 'my string')
+    {
         $this->name = $str;
         return $this->backtrace($arg2, $this);
     }
-    function backtrace($str, MySmallObject $object = null) {
+    public function backtrace($str, MySmallObject $object = null)
+    {
         return new \Reflectors\ReflectionBacktrace();
     }
 }
@@ -417,7 +433,7 @@ echo get_class($reflt);
 <code>$reflt->getMethods();</code>
 <pre>
 <?php
-echo var_export($reflt->getMethods(),1);
+echo var_export($reflt->getMethods(), 1);
 ?>
 </pre>
 
@@ -488,7 +504,8 @@ echo htmlspecialchars($reflt_obj);
 <code>$reflt_obj = new \Reflectors\ReflectionBacktrace();</code>
 <pre>
 <?php
-function callBacktrace($my_arg1, $my_arg2 = 4, array $my_arg3 = array('one', 'two', 'three'=>'value')) {
+function callBacktrace($my_arg1, $my_arg2 = 4, array $my_arg3 = array('one', 'two', 'three'=>'value'))
+{
     $obj = new MySmallObject('david');
     return $obj->backtraceCaller($my_arg2);
 }

@@ -12,6 +12,9 @@
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/typeahead.min.js"></script>
         <script src="../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     
     
     </head>
@@ -73,14 +76,16 @@
 
     <p>    class
     <strong>ReflectionCallback</strong>        implements
-        <a href="http://php.net/Reflector"><abbr title="Reflector">Reflector</abbr></a></p>
+        <a target="_blank" href="http://php.net/Reflector"><abbr title="Reflector">Reflector</abbr></a>
+</p>
 
             <div class="description">
             <p>The callback global reflector</p>                    </div>
     
             <h2>Traits</h2>
 
-        <div class="container-fluid underlined">
+        
+    <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-6">
                                             <a href="../Reflectors/ReflectorTrait.html"><abbr title="Reflectors\ReflectorTrait">Reflectors\ReflectorTrait</abbr></a>
@@ -106,62 +111,82 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    static&nbsp;string|null
+                    static&nbsp;
+    string|null
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_export">export</a>(mixed $argument, bool $return = false)
+                    <a href="#method_export">export</a>(
+    mixed $argument, 
+    bool $return = false)
                                             <p>Creation of a new instance of the mother class on-the-fly</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../Reflectors/ReflectorTrait.html#method_export"><abbr title="Reflectors\ReflectorTrait">ReflectorTrait</abbr></a></small></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    void
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_setReadOnlyProperties">setReadOnlyProperties</a>(array $data)
-                                            <p>Defines the read-only properties names and accessors.</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../Reflectors/ReadOnlyPropertiesTrait.html#method_setReadOnlyProperties"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a></small></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    mixed
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method___get">__get</a>(string $name)
-                                            <p>Magic getter for read-only properties.</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___get"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a></small></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    void
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method___set">__set</a>(string $name, mixed $value)
-                                            <p>Magic setter to avoid setting read-only properties.</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___set"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a></small></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    void
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method___unset">__unset</a>(string $name)
-                                            <p>Magic un-setter to avoid un-setting read-only properties.</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___unset"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a></small></div>
+                <div class="col-md-2"><small>from&nbsp;
+    <a href="../Reflectors/ReflectorTrait.html#method_export"><abbr title="Reflectors\ReflectorTrait">ReflectorTrait</abbr></a></small></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
+    void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(callable $value)
+                    <a href="#method_setReadOnlyProperties">setReadOnlyProperties</a>(
+    array $data)
+                                            <p>Defines the read-only properties names and accessors.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;
+    <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method_setReadOnlyProperties"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___get">__get</a>(
+    string $name)
+                                            <p>Magic getter for read-only properties.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;
+    <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___get"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___set">__set</a>(
+    string $name, 
+    mixed $value)
+                                            <p>Magic setter to avoid setting read-only properties.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;
+    <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___set"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___unset">__unset</a>(
+    string $name)
+                                            <p>Magic un-setter to avoid un-setting read-only properties.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;
+    <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___unset"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(
+    callable $value)
                                             <p class="no-description">No description</p>
                                     </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    callable
+                    
+    callable
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getCallback">getCallback</a>()
@@ -170,7 +195,8 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    int
+                    
+    int
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getCallbackType">getCallbackType</a>()
@@ -179,7 +205,8 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    int
+                    
+    int
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getType">getType</a>()
@@ -188,7 +215,8 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a href="http://php.net/Reflector"><abbr title="Reflector">Reflector</abbr></a>
+                    
+    <a target="_blank" href="http://php.net/Reflector"><abbr title="Reflector">Reflector</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getReflector">getReflector</a>()
@@ -197,7 +225,8 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    null|string
+                    
+    null|string
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getFunctionName">getFunctionName</a>()
@@ -206,7 +235,8 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    null|string
+                    
+    null|string
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getClassName">getClassName</a>()
@@ -215,7 +245,8 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    mixed
+                    
+    mixed
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_invoke">invoke</a>()
@@ -224,16 +255,19 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    mixed
+                    
+    mixed
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_invokeArgs">invokeArgs</a>(array $args)
+                    <a href="#method_invokeArgs">invokeArgs</a>(
+    array $args)
                                             <p>Invokes the callback with a list of parameters as an array</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    bool
+                    
+    bool
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_isFunction">isFunction</a>()
@@ -242,7 +276,8 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    bool
+                    
+    bool
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_isClosure">isClosure</a>()
@@ -251,7 +286,8 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    bool
+                    
+    bool
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_isMethod">isMethod</a>()
@@ -260,7 +296,8 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    bool
+                    
+    bool
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_isMethodStatic">isMethodStatic</a>()
@@ -269,7 +306,8 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    bool
+                    
+    bool
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_isObject">isObject</a>()
@@ -278,7 +316,8 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    string
+                    
+    string
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method___toString">__toString</a>()
@@ -293,9 +332,13 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_export">
-        <div class="location">in <a href="../Reflectors/ReflectorTrait.html#method_export"><abbr title="Reflectors\ReflectorTrait">ReflectorTrait</abbr></a> at line 52</div>
-        <code>        static            string|null
-    <strong>export</strong>(mixed $argument, bool $return = false)</code>
+        <div class="location">in 
+    <a href="../Reflectors/ReflectorTrait.html#method_export"><abbr title="Reflectors\ReflectorTrait">ReflectorTrait</abbr></a> at line 54</div>
+        <code>        static            
+    string|null
+    <strong>export</strong>(
+    mixed $argument, 
+    bool $return = false)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -308,13 +351,15 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$argument</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>bool</td>
+                <td>
+    bool</td>
                 <td>$return</td>
                 <td>
 </td>
@@ -326,7 +371,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>string|null</td>
+            <td>
+    string|null</td>
             <td>
 </td>
         </tr>
@@ -337,11 +383,11 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
+                <td><a target="_blank" href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
                 <td>if the mother class does not implement the <code>\Reflector</code> interface</td>
             </tr>
                     <tr>
-                <td><a href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
+                <td><a target="_blank" href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
                 <td>if the mother class constructor is not callable</td>
             </tr>
             </table>
@@ -353,9 +399,12 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setReadOnlyProperties">
-        <div class="location">in <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method_setReadOnlyProperties"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a> at line 52</div>
-        <code>                    void
-    <strong>setReadOnlyProperties</strong>(array $data)</code>
+        <div class="location">in 
+    <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method_setReadOnlyProperties"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a> at line 54</div>
+        <code>                    
+    void
+    <strong>setReadOnlyProperties</strong>(
+    array $data)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -373,7 +422,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$data</td>
                 <td>This is the table of read-only properties</td>
             </tr>
@@ -384,7 +434,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>void</td>
+            <td>
+    void</td>
             <td>
 </td>
         </tr>
@@ -395,7 +446,7 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="http://php.net/InvalidArgumentException"><abbr title="InvalidArgumentException">InvalidArgumentException</abbr></a></td>
+                <td><a target="_blank" href="http://php.net/InvalidArgumentException"><abbr title="InvalidArgumentException">InvalidArgumentException</abbr></a></td>
                 <td>if the <code>$data</code> array is malformed</td>
             </tr>
             </table>
@@ -407,20 +458,23 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method___get">
-        <div class="location">in <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___get"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a> at line 84</div>
-        <code>                    mixed
-    <strong>__get</strong>(string $name)</code>
+        <div class="location">in 
+    <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___get"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a> at line 85</div>
+        <code>                    
+    mixed
+    <strong>__get</strong>(
+    string $name)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
-                                    <p>Magic getter for read-only properties.</p>                    <p>This will trigger a notice if the property can not be accessed
-(i.e. is not defined in the <code>$_read_only</code> table).</p>            </div>
+                                    <p>Magic getter for read-only properties.</p>                    <p>This will trigger a notice if the property can not be accessed.</p>            </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>
 </td>
@@ -432,7 +486,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
+            <td>
+    mixed</td>
             <td>
 </td>
         </tr>
@@ -446,9 +501,13 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method___set">
-        <div class="location">in <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___set"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a> at line 108</div>
-        <code>                    void
-    <strong>__set</strong>(string $name, mixed $value)</code>
+        <div class="location">in 
+    <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___set"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a> at line 109</div>
+        <code>                    
+    void
+    <strong>__set</strong>(
+    string $name, 
+    mixed $value)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -458,13 +517,15 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>
 </td>
@@ -476,7 +537,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>void</td>
+            <td>
+    void</td>
             <td>
 </td>
         </tr>
@@ -487,7 +549,7 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
+                <td><a target="_blank" href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
                 <td>if trying to set a read-only property</td>
             </tr>
             </table>
@@ -499,9 +561,12 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method___unset">
-        <div class="location">in <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___unset"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a> at line 124</div>
-        <code>                    void
-    <strong>__unset</strong>(string $name)</code>
+        <div class="location">in 
+    <a href="../Reflectors/ReadOnlyPropertiesTrait.html#method___unset"><abbr title="Reflectors\ReadOnlyPropertiesTrait">ReadOnlyPropertiesTrait</abbr></a> at line 125</div>
+        <code>                    
+    void
+    <strong>__unset</strong>(
+    string $name)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -511,7 +576,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>
 </td>
@@ -523,7 +589,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>void</td>
+            <td>
+    void</td>
             <td>
 </td>
         </tr>
@@ -534,7 +601,7 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
+                <td><a target="_blank" href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
                 <td>if trying to unset a read-only property</td>
             </tr>
             </table>
@@ -546,9 +613,11 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at line 66</div>
+        <div class="location">at line 64</div>
         <code>                    
-    <strong>__construct</strong>(callable $value)</code>
+    
+    <strong>__construct</strong>(
+    callable $value)</code>
     </h3>
     <div class="details">
                 <div class="tags">
@@ -556,7 +625,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>callable</td>
+                <td>
+    callable</td>
                 <td>$value</td>
                 <td>
 </td>
@@ -569,7 +639,7 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
+                <td><a target="_blank" href="http://php.net/ReflectionException"><abbr title="ReflectionException">ReflectionException</abbr></a></td>
                 <td>if the parameter is not a closure</td>
             </tr>
             </table>
@@ -581,8 +651,9 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getCallback">
-        <div class="location">at line 84</div>
-        <code>                    callable
+        <div class="location">at line 82</div>
+        <code>                    
+    callable
     <strong>getCallback</strong>()</code>
     </h3>
     <div class="details">
@@ -594,7 +665,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>callable</td>
+            <td>
+    callable</td>
             <td>
 </td>
         </tr>
@@ -608,8 +680,9 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getCallbackType">
-        <div class="location">at line 94</div>
-        <code>                    int
+        <div class="location">at line 92</div>
+        <code>                    
+    int
     <strong>getCallbackType</strong>()</code>
     </h3>
     <div class="details">
@@ -621,7 +694,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>int</td>
+            <td>
+    int</td>
             <td>
 </td>
         </tr>
@@ -635,8 +709,9 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getType">
-        <div class="location">at line 105</div>
-        <code>                    int
+        <div class="location">at line 103</div>
+        <code>                    
+    int
     <strong>getType</strong>()</code>
     </h3>
     <div class="details">
@@ -648,7 +723,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>int</td>
+            <td>
+    int</td>
             <td>
 </td>
         </tr>
@@ -671,8 +747,9 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getReflector">
-        <div class="location">at line 115</div>
-        <code>                    <a href="http://php.net/Reflector"><abbr title="Reflector">Reflector</abbr></a>
+        <div class="location">at line 113</div>
+        <code>                    
+    <a target="_blank" href="http://php.net/Reflector"><abbr title="Reflector">Reflector</abbr></a>
     <strong>getReflector</strong>()</code>
     </h3>
     <div class="details">
@@ -684,7 +761,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="http://php.net/Reflector"><abbr title="Reflector">Reflector</abbr></a></td>
+            <td>
+    <a target="_blank" href="http://php.net/Reflector"><abbr title="Reflector">Reflector</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -698,8 +776,9 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getFunctionName">
-        <div class="location">at line 134</div>
-        <code>                    null|string
+        <div class="location">at line 132</div>
+        <code>                    
+    null|string
     <strong>getFunctionName</strong>()</code>
     </h3>
     <div class="details">
@@ -711,7 +790,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>null|string</td>
+            <td>
+    null|string</td>
             <td>
 </td>
         </tr>
@@ -725,8 +805,9 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getClassName">
-        <div class="location">at line 144</div>
-        <code>                    null|string
+        <div class="location">at line 142</div>
+        <code>                    
+    null|string
     <strong>getClassName</strong>()</code>
     </h3>
     <div class="details">
@@ -738,7 +819,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>null|string</td>
+            <td>
+    null|string</td>
             <td>
 </td>
         </tr>
@@ -752,8 +834,9 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_invoke">
-        <div class="location">at line 154</div>
-        <code>                    mixed
+        <div class="location">at line 152</div>
+        <code>                    
+    mixed
     <strong>invoke</strong>()</code>
     </h3>
     <div class="details">
@@ -765,7 +848,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
+            <td>
+    mixed</td>
             <td>
 </td>
         </tr>
@@ -779,9 +863,11 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_invokeArgs">
-        <div class="location">at line 165</div>
-        <code>                    mixed
-    <strong>invokeArgs</strong>(array $args)</code>
+        <div class="location">at line 163</div>
+        <code>                    
+    mixed
+    <strong>invokeArgs</strong>(
+    array $args)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -791,7 +877,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$args</td>
                 <td>
 </td>
@@ -803,7 +890,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
+            <td>
+    mixed</td>
             <td>
 </td>
         </tr>
@@ -817,8 +905,9 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isFunction">
-        <div class="location">at line 175</div>
-        <code>                    bool
+        <div class="location">at line 173</div>
+        <code>                    
+    bool
     <strong>isFunction</strong>()</code>
     </h3>
     <div class="details">
@@ -830,7 +919,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -844,8 +934,9 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isClosure">
-        <div class="location">at line 185</div>
-        <code>                    bool
+        <div class="location">at line 183</div>
+        <code>                    
+    bool
     <strong>isClosure</strong>()</code>
     </h3>
     <div class="details">
@@ -857,7 +948,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -871,8 +963,9 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isMethod">
-        <div class="location">at line 195</div>
-        <code>                    bool
+        <div class="location">at line 193</div>
+        <code>                    
+    bool
     <strong>isMethod</strong>()</code>
     </h3>
     <div class="details">
@@ -884,7 +977,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -898,8 +992,9 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isMethodStatic">
-        <div class="location">at line 205</div>
-        <code>                    bool
+        <div class="location">at line 203</div>
+        <code>                    
+    bool
     <strong>isMethodStatic</strong>()</code>
     </h3>
     <div class="details">
@@ -911,7 +1006,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -925,8 +1021,9 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isObject">
-        <div class="location">at line 215</div>
-        <code>                    bool
+        <div class="location">at line 213</div>
+        <code>                    
+    bool
     <strong>isObject</strong>()</code>
     </h3>
     <div class="details">
@@ -938,7 +1035,8 @@ trait).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -952,8 +1050,9 @@ trait).</p>            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method___toString">
-        <div class="location">at line 228</div>
-        <code>                    string
+        <div class="location">at line 226</div>
+        <code>                    
+    string
     <strong>__toString</strong>()</code>
     </h3>
     <div class="details">
@@ -966,7 +1065,8 @@ original result (but it is not thrown ahead).</p>            </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>
 </td>
         </tr>
